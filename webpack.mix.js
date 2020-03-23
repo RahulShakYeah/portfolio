@@ -12,4 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .autoload({
+        jquery:['$','jquery','window.jquery'],
+        "popper.js":['Popper']
+    })
+    .extract()
+    .js('resources/js/blogger.js','public/js')
+    .sass('resources/sass/blogger.scss','public/css')
     .sass('resources/sass/app.scss', 'public/css');
