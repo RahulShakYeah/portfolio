@@ -152,13 +152,14 @@
                 {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">--}}
                 {{--                </div>--}}
                 <div class="info">
-                    <a href="#" class="d-block">{{auth()->user()->email}}</a>
+                    <a href="" class="d-block">{{auth()->user()->email}}</a>
                 </div>
             </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open mt-2 mb-2">
@@ -180,7 +181,7 @@
                         </a>
                     </li>
                     <li class="nav-item has-treeview mt-2 mb-2">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('blog.list')}}" class="nav-link @yield('blogstatus')">
                             <i class="nav-icon fas fa-fw fa-newspaper"></i>
                             <p>
                                 Blog
@@ -208,6 +209,21 @@
 
                     </li>
 
+                    <li class="nav-item has-treeview mt-2 mb-2">
+                        <a href="{{ route('logout') }}" class="nav-link"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-fw fa-power-off"></i>
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+
+                </ul>
+
             </nav>
             <!-- /.sidebar-menu -->
         </div>
@@ -219,8 +235,8 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-
-               @yield('content')
+                @include('blogger.message')
+                @yield('content')
 
             </div><!-- /.container-fluid -->
         </section>
@@ -254,7 +270,7 @@
     $(document).ready(function () {
         $('#usertable').DataTable();
     });
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#summernote').summernote();
     });
 </script>

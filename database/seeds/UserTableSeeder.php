@@ -25,6 +25,13 @@ class UserTableSeeder extends Seeder
                 'password' => bcrypt('blogger123'),
                 'role' => 'blogger',
                 'status' => 'active',
+            ),
+            array(
+                'name' => 'Random',
+                'email' => 'random@blogger.com',
+                'password' => bcrypt('random123'),
+                'role' => 'blogger',
+                'status' => 'active',
             )
         );
 

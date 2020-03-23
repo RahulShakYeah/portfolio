@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col-sm-12">
             <h2 class="mt-3 mb-2">Category List
-                <a href="{{route('blogger.create')}}" class="btn btn-success btn-sm float-right"><i class="fa fa-plus"></i> Insert Category</a>
+                <a href="{{route('category.creation')}}" class="btn btn-success btn-sm float-right"><i
+                        class="fa fa-plus"></i> Create Category</a>
             </h2>
             <hr>
         </div>
@@ -15,6 +16,7 @@
                 <th>Name</th>
                 <th>Summary</th>
                 <th>Added By</th>
+                <th>Status</th>
                 <th>Action</th>
                 </thead>
                 <tbody>
@@ -27,8 +29,22 @@
                             <td>{{$value->user->name}}</td>
                             @if($value->status == "inactive")
                                 <td><span class="badge badge-danger">Under-review</span></td>
-                                @else
+                            @else
                                 <td><span class="badge badge-success">Publish</span></td>
+                            @endif
+                            @if(auth()->user()->id == $value->added_by)
+                                <td>
+                                    <form method="DELETE" action="{{route('blogger.destroy',$value->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2" style="border-radius: 50px"><i class="fa fa-trash"></i></button>
+                                    </form>
+
+                                </td>
+                            @else
+                                <td>
+                                    <span class="badge badge-warning">Only the author can delete the category</span>
+                                </td>
                             @endif
                         </tr>
                     @endforeach

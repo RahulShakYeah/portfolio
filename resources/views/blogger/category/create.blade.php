@@ -24,7 +24,7 @@
                                 <div class="form-group row">
                                     <label for="cat_summary" class="col-3">Category Summary</label>
                                     <div class="col-sm-9">
-                                        <textarea name="" id="cat_summary" cols="90" rows="6" class="form-control" style="resize: none"></textarea>
+                                        <textarea name="summary" id="cat_summary" cols="90" rows="6" class="form-control" style="resize: none"></textarea>
                                     </div>
                                 </div>
                             </div>
