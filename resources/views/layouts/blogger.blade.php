@@ -158,11 +158,11 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open mt-2 mb-2">
+                    <li class="nav-item mt-2 mb-2">
                         <a href="{{route('blogger')}}" class="nav-link @yield('status')">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -271,7 +271,7 @@
         $('#usertable').DataTable();
     });
     $(document).ready(function () {
-        $('#summernote').summernote();
+        $('.summernote').summernote();
     });
 </script>
 

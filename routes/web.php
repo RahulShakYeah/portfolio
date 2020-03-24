@@ -33,4 +33,5 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::get('/{id}/delete','CategoryController@destroy')->name('blogger.destroy');
     Route::get('/blog','BlogController@index')->name('blog.list');
     Route::get('/blog/create','BlogController@create')->name('blog.create');
+    Route::post('/blog/store','BlogController@store')->name('blog.store');
 });

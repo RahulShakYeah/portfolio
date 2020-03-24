@@ -14,7 +14,7 @@
                 <thead>
                 <th>S.N</th>
                 <th>Title</th>
-                <th>Body</th>
+                <th>Summary</th>
                 <th>Image</th>
                 <th>Status</th>
                 <th>Added by</th>
@@ -27,9 +27,13 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$value->title}}</td>
-                            <td>{{substr($value->description,0,50)}}</td>
-                            <td>{{$value->image}}</td>
-
+                            <td>{{substr($value->summary,0,50)}}</td>
+                            @if($value->image != "noimage.jpg")
+                                <td><img src="{{asset('storage/blog/'.$value->image)}}" style="max-width: 100px"
+                                         alt="{{$value->title}}"></td>
+                            @else
+                                <td><span class="badge badge-dark">No Image Uploaded</span></td>
+                            @endif
                             @if($value->status == "inactive")
                                 <td>
                                     <span class="badge badge-danger">Under-review</span>
@@ -39,13 +43,21 @@
                                     <span class="badge badge-success">{{$value->status}}</span>
                                 </td>
                             @endif
-                            <td>{{$value->added_by}}</td>
-                            <td>{{$value->cat_id}}</td>
+                            <td>{{$value->user->name}}</td>
+                            <td>{{$value->category->name}}</td>
                             @if(auth()->user()->id == $value->added_by)
-                                <td><button class="btn btn-danger btn-sm" style="border-radius: 50px" type="submit"><i class="fa fa-trash"></i></button></td>
-                                @else
+                                <td>
+
+                                    <button class="btn btn-success btn-sm ml-1" style="border-radius: 60px;"><i class="fa fa-edit"></i></button>&nbsp;
+                                    <form action="" class="float-left">
+                                            <button class="btn btn-danger btn-sm" style="border-radius: 50px" type="submit">
+                                            <i class="fa fa-trash"></i></button>
+
+                                    </form>
+                                </td>
+                            @else
                                 <td><span class="badge badge-warning">Only the author can delete the blog</span></td>
-                                @endif
+                            @endif
                         </tr>
                     @endforeach
                 @endif
