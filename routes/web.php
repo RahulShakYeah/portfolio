@@ -34,4 +34,7 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::get('/blog','BlogController@index')->name('blog.list');
     Route::get('/blog/create','BlogController@create')->name('blog.create');
     Route::post('/blog/store','BlogController@store')->name('blog.store');
+    Route::get('/{id}/delete/blog','BlogController@destroy')->name('blog.delete');
+    Route::get('/{id}/edit/blog','BlogController@edit')->name('blog.edit');
+    Route::get('/{id}/update/blog','BlogController@update')->name('blog.update');
 });

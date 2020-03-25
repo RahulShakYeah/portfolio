@@ -26,6 +26,6 @@
         "sass-loader": "^8.0.0",
         "summernote": "^0.8.16",
         "vue-template-compiler": "^2.6.11",
-        "datatable": "^2.0.2"
+        "datatable": "^2.0.2",
     }
 }

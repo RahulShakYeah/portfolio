@@ -53,4 +53,31 @@ class BlogController extends Controller
         return redirect()->route('blog.list')->with('success','Blog added successfully');
 
     }
+
+    public function destroy($id){
+        $blog = Blog::findOrFail($id);
+        if(auth()->user()->id == $blog->added_by) {
+            $path = "storage/blog/" . $blog->image;
+            if (\File::exists($path)) {
+                \File::delete($path);
+            }
+            $status = $blog->delete();
+            if ($status == true) {
+                return redirect()->route('blog.list')->with('success', 'Blog data delete successfully');
+            } else {
+                return redirect()->route('blog.list')->with('error', 'Error occured while deleting the blog.');
+            }
+        }else{
+            return redirect()->route('blog.list')->with('error','Unauthorized user');
+        }
+    }
+
+    public function edit($id){
+        $blog = Blog::findOrFail($id);
+        return view('blogger.blog.edit')->with('blog',$blog);
+    }
+
+    public function update(Request $request,$id){
+        dd('ok');
+    }
 }

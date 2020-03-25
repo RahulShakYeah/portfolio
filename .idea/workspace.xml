@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5a1ee21-5aa2-4bea-bfed-15bd4400dcc2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_23_090639_create_blog_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_23_090639_create_blog_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +139,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../urjaDashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ResultManagement" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -163,6 +163,10 @@
       <workItem from="1584942799215" duration="8546000" />
       <workItem from="1584963999978" duration="4596000" />
       <workItem from="1585032428843" duration="10478000" />
+      <workItem from="1585054031901" duration="3753000" />
+      <workItem from="1585057866218" duration="1781000" />
+      <workItem from="1585114607248" duration="2086000" />
+      <workItem from="1585116842499" duration="5717000" />
     </task>
     <servers />
   </component>
@@ -170,14 +174,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1585042410978">
+    <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585055596518">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585042410978" />
+    <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585055596518" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1585132022366">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585132022366" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054711183" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1584882879936" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1585032429577">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1585114607689">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585032429577" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585114607689" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054067486" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1585057865836" />
   </component>
 </project>

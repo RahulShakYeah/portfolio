@@ -48,8 +48,9 @@
                             @if(auth()->user()->id == $value->added_by)
                                 <td>
 
-                                    <button class="btn btn-success btn-sm ml-1" style="border-radius: 60px;"><i class="fa fa-edit"></i></button>&nbsp;
-                                    <form action="" class="float-left">
+                                    <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success btn-sm ml-1" style="border-radius: 60px;"><i class="fa fa-edit"></i></a>&nbsp;
+                                    <form method="DELETE" action="{{route('blog.delete',$value->id)}}" method="post" class="float-left">
+                                        @method('delete')
                                             <button class="btn btn-danger btn-sm" style="border-radius: 50px" type="submit">
                                             <i class="fa fa-trash"></i></button>
 
