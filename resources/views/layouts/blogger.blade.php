@@ -200,7 +200,7 @@
                         </a>
                     </li>
                     <li class="nav-item has-treeview mt-2 mb-2">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('video.index')}}" class="nav-link @yield('videostatus')">
                             <i class="nav-icon fas fa-fw fa-video"></i>
                             <p>
                                 Video Gallery

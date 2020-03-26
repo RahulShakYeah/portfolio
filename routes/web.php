@@ -36,5 +36,6 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::post('/blog/store','BlogController@store')->name('blog.store');
     Route::get('/{id}/delete/blog','BlogController@destroy')->name('blog.delete');
     Route::get('/{id}/edit/blog','BlogController@edit')->name('blog.edit');
-    Route::get('/{id}/update/blog','BlogController@update')->name('blog.update');
+    Route::post('update/blog','BlogController@update')->name('blog.update');
+    Route::resource('video','VideoController');
 });

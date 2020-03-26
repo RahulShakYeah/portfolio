@@ -24,7 +24,6 @@ class BlogController extends Controller
             "is_featured" => "sometimes|in:1",
             "category" => "required|exists:categories,id"
         ]);
-
         if($request->hasFile('image')){
             $fileNameWithExtension = $request->file('image')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
@@ -77,7 +76,49 @@ class BlogController extends Controller
         return view('blogger.blog.edit')->with('blog',$blog);
     }
 
-    public function update(Request $request,$id){
-        dd('ok');
+    public function update(Request $request){
+        $this->validate($request,[
+            "title" => "required|min:3",
+            "summary" => "required",
+            "description" => "required",
+            "is_featured" => "sometimes|in:1",
+            "category" => "required|exists:categories,id"
+        ]);
+        if($request->hasFile('image')){
+            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = "Blog_".time().rand(0,999).$fileName.'.'.$extension;
+            $path = $request->file('image')->storeAs('public/blog',$fileNameToStore);
+        }else{
+            $fileNameToStore=false;
+        }
+        $id = $request->get('id');
+        $blog = Blog::findOrFail($id);
+        $blog->title = $request->get('title');
+        $blog->summary = $request->get('summary');
+        $body = htmlentities(request()->get('description'));
+        $blog->description = $body;
+        if(request()->get('is_featured') == null){
+            $data = 0;
+        }else{
+            $data = 1;
+        }
+        $blog->is_featured = $data;
+        $blog->cat_id = $request->get('category');
+        if($fileNameToStore == false){
+            $fileNameToStore = $blog->image;
+        }elseif($fileNameToStore){
+            $path = "storage/blog/".$blog->image;
+            if(\File::exists($path)){
+                \File::delete($path);
+            }
+        }
+        $blog->added_by = auth()->user()->id;
+        $blog->image = $fileNameToStore;
+        $blog->save();
+
+        return redirect()->route('blog.list')->with('success','Blog data updated successfully');
+
     }
 }

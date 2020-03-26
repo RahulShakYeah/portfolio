@@ -7,7 +7,7 @@ use App\User;
 use App\Category;
 class Blog extends Model
 {
-    protected $fillable = ['title','description','summary','status'];
+    protected $fillable = ['title','description','summary','status','image'];
 
     public function user(){
         return $this->hasOne(User::class,'id','added_by');

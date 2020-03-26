@@ -9,14 +9,15 @@
                 </div>
                 <div class="card-body">
                     <div class="box box-primary">
-                        <form method="PATCH" method="post" action="{{route('blog.update',$blog->id)}}" enctype="multipart/form-data">
+                        <form action="{{route('blog.update')}}" method="post" enctype="multipart/form-data" onsubmit="beforeSubmit();">
                             @csrf
-                            @method('patch')
+                            <input type="hidden" name="id" value="{{$blog->id}}">
                             <div class="box-body">
                                 <div class="form-group row">
                                     <label for="blog_title" class="col-3">Blog Title</label>
                                     <div class="col-sm-9">
-                                        <input value="{{$blog->title}}" type="text" class="form-control" id="blog_title" name="title"
+                                        <input value="{{$blog->title}}" type="text" class="form-control" id="blog_title"
+                                               name="title"
                                                placeholder="Enter blog title">
                                         @error('title')
                                         <p class="alert-danger">{{$message}}</p>
@@ -26,7 +27,8 @@
                                 <div class="form-group row">
                                     <label for="summernote" class="col-3">Blog Description</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" class="summernote" >{{html_entity_decode($blog->description)}}</textarea>
+                                        <textarea name="description"
+                                                  class="summernote">{{html_entity_decode($blog->description)}}</textarea>
                                         @error('description')
                                         <p class="alert-danger">{{$message}}</p>
                                         @enderror
@@ -52,7 +54,8 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <img src="{{asset('storage/blog/'.$blog->image)}}" style="max-width: 200px" alt="">
+                                        <img src="{{asset('storage/blog/'.$blog->image)}}" style="max-width: 200px"
+                                             alt="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -73,7 +76,8 @@
                                                 $cat = \App\Category::get();
                                             @endphp
                                             @foreach($cat as $key=>$value)
-                                                <option value="{{$value->id}}" {{$blog->cat_id == $value->id?'selected':''}}>{{$value->name}}</option>
+                                                <option
+                                                    value="{{$value->id}}" {{$blog->cat_id == $value->id?'selected':''}}>{{$value->name}}</option>
                                             @endforeach
                                         </select>
                                         @error('category')
@@ -86,7 +90,7 @@
 
                             <div class="box-footer">
                                 <div class="col-9 offset-3">
-                                    <button type="submit" class="btn btn-primary" >Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
                         </form>
