@@ -38,4 +38,8 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::get('/{id}/edit/blog','BlogController@edit')->name('blog.edit');
     Route::post('update/blog','BlogController@update')->name('blog.update');
     Route::resource('video','VideoController');
+    Route::resource('album','AlbumController');
+    Route::resource('image','ImageController');
+    Route::get('/image/add/{id}','ImageController@add')->name('image.add');
+    Route::get('/image/list/{id}','ImageController@showImage')->name('show.list');
 });

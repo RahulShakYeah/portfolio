@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5a1ee21-5aa2-4bea-bfed-15bd4400dcc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/blogger/video/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blogger/video/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/blogger/Album/alist.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/blogger/Album/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/blogger/image/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/blogger/image/imagelist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Blog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogger/video/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/video/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -138,7 +138,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ResultManagement" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -167,7 +167,11 @@
       <workItem from="1585114607248" duration="2086000" />
       <workItem from="1585116842499" duration="5717000" />
       <workItem from="1585213956002" duration="8318000" />
-      <workItem from="1585223478868" duration="1722000" />
+      <workItem from="1585223478868" duration="3251000" />
+      <workItem from="1585306531002" duration="614000" />
+      <workItem from="1585456202200" duration="9758000" />
+      <workItem from="1585468833643" duration="272000" />
+      <workItem from="1585469158221" duration="2714000" />
     </task>
     <servers />
   </component>
@@ -175,25 +179,34 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585055596518">
+    <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585465838450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585465838450" />
     <state x="500" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585055596518" />
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585222236577">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585222236577" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1585215842756">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1585463952489">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585215842756" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585463952489" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054711183" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1584882879936" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1585223526199">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1585469176181">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585223526199" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585469176181" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054067486" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1585057865836" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1585306530986" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1585462436422">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585462436422" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1585466074298">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585466074298" />
   </component>
 </project>

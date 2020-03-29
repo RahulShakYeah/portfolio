@@ -191,7 +191,7 @@
                     </li>
 
                     <li class="nav-item has-treeview mt-2 mb-2">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('album.index')}}" class="nav-link">
                             <i class="nav-icon fas fa-images"></i>
                             <p>
                                 Image Gallery
