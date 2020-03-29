@@ -1,4 +1,5 @@
 @extends('layouts.blogger')
+@section('image','active')
 @section('content')
     <div class="row">
         <div class="col-sm-12">
