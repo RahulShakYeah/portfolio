@@ -8,6 +8,7 @@
     <title>Admincast bootstrap 4 &amp; angular 5 admin template, Шаблон админки | Dashboard</title>
     <!-- GLOBAL MAINLY STYLES-->
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
     <!-- PAGE LEVEL STYLES-->
 </head>
 
@@ -18,7 +19,7 @@
         <div class="page-brand">
             <a class="link" href="index.html">
                     <span class="brand">Admin</span>
-                <span class="brand-mini">AC</span>
+                <span class="brand-mini">A</span>
             </a>
         </div>
         <div class="flexbox flex-1">
@@ -81,18 +82,30 @@
                     </a>
                 </li>
                 <li>
+                    <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-pen"></i>
+                        <span class="nav-label">Portfolio</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('testimonial.index')}}"><i class="sidebar-item-icon fa fa-star"></i>
+                        <span class="nav-label">Testimonial</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
-                        <span class="nav-label">Dashboard</span>
+                        <span class="nav-label">Subscription</span>
                     </a>
                 </li>
                 <li>
                     <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
-                        <span class="nav-label">Dashboard</span>
+                        <span class="nav-label">Contact</span>
                     </a>
                 </li>
                 <li>
                     <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
-                        <span class="nav-label">Dashboard</span>
+                        <span class="nav-label">Users</span>
                     </a>
                 </li>
             </ul>
@@ -102,6 +115,7 @@
     <div class="content-wrapper">
         <!-- START PAGE CONTENT-->
         <div class="page-content fade-in-up">
+            @include('admin.message')
             @yield('content')
             <style>
                 .visitors-table tbody tr td:last-child {
@@ -135,6 +149,15 @@
 <script src="{{asset('js/manifest.js')}}"></script>
 <script src="{{asset('js/vendor.js')}}"></script>
 <script src="{{asset('js/admin.js')}}"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        $('#usertable').DataTable();
+    });
+</script>
 </body>
 
 </html>

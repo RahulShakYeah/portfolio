@@ -76,16 +76,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/frontend.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/frontend.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!***********************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/blogger.scss ./resources/sass/admin.scss ./resources/sass/app.scss ***!
-  \***********************************************************************************************************************/
+/*!******************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/blogger.scss ./resources/sass/admin.scss ./resources/sass/frontend.scss ./resources/sass/app.scss ***!
+  \******************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\xampp\htdocs\portfolio\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\xampp\htdocs\portfolio\resources\sass\blogger.scss */"./resources/sass/blogger.scss");
 __webpack_require__(/*! C:\xampp\htdocs\portfolio\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! C:\xampp\htdocs\portfolio\resources\sass\frontend.scss */"./resources/sass/frontend.scss");
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\portfolio\resources\sass\app.scss */"./resources/sass/app.scss");
 
 

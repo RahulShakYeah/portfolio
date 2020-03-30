@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Auth::routes(['register'=>false]);
@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','HomeController@admin')->name('admin');
+    Route::resource('testimonial','TestimonialController');
 });
 
 Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
