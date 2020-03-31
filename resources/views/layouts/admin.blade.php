@@ -95,11 +95,6 @@
 
                 <li>
                     <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
-                        <span class="nav-label">Subscription</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
                         <span class="nav-label">Contact</span>
                     </a>
                 </li>

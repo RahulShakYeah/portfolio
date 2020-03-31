@@ -13,10 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
-
+Route::get('/','FrontEndController@sendTestimonial')->name('all');
 Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -24,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','HomeController@admin')->name('admin');
     Route::resource('testimonial','TestimonialController');
+    Route::resource('subscription','SubscriptionController');
 });
 
 Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){

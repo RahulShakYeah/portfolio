@@ -181,7 +181,9 @@ h3 {
 .bg-img-1 {
   background-image: url(../images/slider/slider-img-1.jpg);
 }
-
+.email-input{
+    width:100%;
+}
 /* line 133, ../../Arafath/CL/CL October/218 PORTFOLIO/HTML/scss/theme-default.scss */
 .bg-img-2 {
   background-image: url(../images/background-img/bg-img-2.jpg);

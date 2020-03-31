@@ -29,6 +29,16 @@
                                 <td><img src="{{asset('storage/testimonial/'.$value->image)}}" style="max-width:100px;"></td>
                                 <td>{{substr($value->description,0,50)}}</td>
                                 <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
+                                <td>
+                                    <a href="{{route('testimonial.edit',$value->id)}}" class="btn btn-success btn-sm ml-1" style="border-radius: 50px"><i class="fa fa-edit"></i></a>&nbsp;
+                                    <form class="float-left" method="post" action="{{route('testimonial.destroy',$value->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm" style="border-radius: 50px"><i class="fa fa-trash"></i></button>
+                                    </form>
+
+                                </td>
+
                             </tr>
                         @endforeach
                     @endif

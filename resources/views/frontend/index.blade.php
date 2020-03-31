@@ -29,7 +29,8 @@
 
 <body>
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
 <!-- header-start -->
@@ -65,7 +66,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                    @if (Route::has('login'))
+                                        @if (Route::has('login'))
                                             @auth
                                                 <a href="{{ url('/home') }}">Dashboard</a>
                                             @else
@@ -73,8 +74,8 @@
 
                                                 @if (Route::has('register'))
                                                     <a href="{{ route('register') }}">Register</a>
-                                                @endif
-                                            @endauth
+                                    @endif
+                                    @endauth
                                     @endif
                                 </ul>
                             </nav>
@@ -83,7 +84,7 @@
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="Appointment">
                             <div class="book_btn d-none d-lg-block">
-                                <a  href="#">Contact Me</a>
+                                <a href="#">Contact Me</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
             <div class="col-xl-12">
                 <div class="section_title text-center mb-65">
                     <span>Service Provided</span>
-                    <h3>Build brands campaigns  <br>
+                    <h3>Build brands campaigns <br>
                         & digital projects</h3>
                 </div>
             </div>
@@ -279,7 +280,11 @@
             <div class="col-xl-6 col-md-6">
                 <div class="about_e_details">
                     <h3>About me</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida Risus com odo viverra maecenas.</p>
+                    @if(count($about) > 0)
+                        @foreach($about as $about)
+                            <p>{{$about->description}}</p>
+                        @endforeach
+                    @endif
                     <div class="download_cv">
                         <a class="boxed-btn3" href="#">Download CV</a>
                     </div>
@@ -291,7 +296,7 @@
                         <img src="images/about/color_grid.png" alt="">
                     </div>
                     <div class="my_Pic">
-                        <img src="images/about/about.png" alt="">
+                        <img src="images/about.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -300,13 +305,13 @@
 </div>
 <!--/ about_me  -->
 
-<div class="counter_area">
+<div class="counter_area" style="margin-top:-120px;">
     <div class="container">
         <div class="row">
             <div class="col-xl-4 col-md-4">
                 <div class="single_counter text-center">
                     <h3>
-                        <span class="counter" >520 </span><span>+</span>
+                        <span class="counter">520 </span><span>+</span>
                     </h3>
                     <p>Total Projects</p>
                 </div>
@@ -322,7 +327,7 @@
             <div class="col-xl-4 col-md-4">
                 <div class="single_counter text-center">
                     <h3>
-                        <span class="counter" >95 </span> <span>%</span>
+                        <span class="counter">95 </span> <span>%</span>
                     </h3>
                     <p>Job Success</p>
                 </div>
@@ -331,49 +336,50 @@
     </div>
 </div>
 <!-- testimonial_area  -->
+
 <div class="testimonial_area ">
+
     <div class="container">
+
         <div class="row">
+
             <div class="col-xl-12">
+
                 <div class="testmonial_active owl-carousel">
-                    <div class="single_carousel">
-                        <div class="single_testmonial text-center">
-                            <div class="quote">
-                                <img src="img/testmonial/quote.svg" alt="">
-                            </div>
-                            <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.  <br>
-                                Fusce ac mattis nulla. Morbi eget ornare dui. </p>
-                            <div class="testmonial_author">
-                                <div class="thumb">
-                                    <img src="images/testmonial/thumb.png" alt="">
+                    @if(count($testimonial) > 0)
+                        @foreach($testimonial as $key=>$value)
+                            <div class="single_carousel">
+
+                                <div class="single_testmonial text-center">
+                                    <div class="quote">
+                                        <img src="images/testmonial/quote.svg" alt="">
+                                    </div>
+                                    <p>{{$value->description}} </p>
+                                    <div class="testmonial_author">
+                                        <div class="thumb">
+                                            <img src="{{asset('storage/testimonial/'.$value->image)}}"
+                                                 style="max-width:50px;border-radius:50px;margin-left:-5px " alt="">
+                                        </div>
+                                        <h3>{{$value->name}}</h3>
+                                        <span>{{$value->position}}</span>
+                                    </div>
                                 </div>
-                                <h3>Robert Thomson</h3>
-                                <span>Business Owner</span>
+
                             </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </div>
+
 <!-- /testimonial_area  -->
-
-<div class="discuss_projects">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="project_text text-center">
-                    <h3>Let’s discuss for a project</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor <br> incididunt ut labore et dolore magna aliqua.</p>
-                    <a class="boxed-btn3" href="#">Start Talking</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+@include('frontend.subscription')
 <!-- footer start -->
 <footer class="footer">
     <div class="footer_top">
@@ -408,7 +414,10 @@
                 <div class="col-xl-12">
                     <p class="copy_right text-center">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>

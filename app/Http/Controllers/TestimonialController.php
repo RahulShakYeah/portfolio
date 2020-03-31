@@ -89,7 +89,8 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+        return view('admin.testimonial.edit')->with('testimonial',$testimonial);
     }
 
     /**
@@ -101,7 +102,42 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'position' => 'required|min:3',
+            'description' => 'required',
+            'status' => 'required|in:active,inactive'
+        ]);
+        if($request->hasFile('image')){
+            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = "Testimonial_".time().rand(0,999).$fileName.'.'.$extension;
+            $path = $request->file('image')->storeAs('public/testimonial',$fileNameToStore);
+        }else{
+            $fileNameToStore = false;
+        }
+
+        $testimonial = Testimonial::findOrFail($id);
+        $testimonial->name = $request->get('name');
+        $testimonial->position = $request->get('position');
+        $testimonial->description = $request->get('description');
+        $testimonial->status = $request->get('status');
+        if($fileNameToStore == false){
+            $fileNameToStore = $testimonial->image;
+        }elseif($fileNameToStore){
+            $path="storage/testimonial/".$testimonial->image;
+            if(\File::exists($path)){
+                \File::delete($path);
+            }
+            $testimonial->image = $fileNameToStore;
+        }
+        $status = $testimonial->save();
+        if($status == true){
+            return redirect()->route('testimonial.index')->with('success','Testimonial has been updated successfully');
+        }else{
+            return redirect()->route('testimonial.index')->with('errore','Error occured while updating the testimonial');
+        }
     }
 
     /**
@@ -112,6 +148,16 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $testimonial = Testimonial::findOrFail($id);
+        $path = 'storage/testimonial/'.$testimonial->image;
+        if(\File::exists($path)){
+            \File::delete($path);
+        }
+        $status = $testimonial->delete();
+        if($status == true){
+            return redirect()->route('testimonial.index')->with('success','Testimonial deleted successfully');
+        }else{
+            return redirect()->route('testimonial.index')->with('error','Error occured while deleting the testimonial');
+        }
     }
 }
