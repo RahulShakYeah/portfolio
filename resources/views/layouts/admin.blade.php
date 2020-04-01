@@ -8,6 +8,7 @@
     <title>Admincast bootstrap 4 &amp; angular 5 admin template, Шаблон админки | Dashboard</title>
     <!-- GLOBAL MAINLY STYLES-->
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
     <!-- PAGE LEVEL STYLES-->
 </head>
@@ -27,14 +28,6 @@
             <ul class="nav navbar-toolbar">
                 <li>
                     <a class="nav-link sidebar-toggler js-sidebar-toggler"><i class="ti-menu"></i></a>
-                </li>
-                <li>
-                    <form class="navbar-search" action="javascript:;">
-                        <div class="rel">
-                            <span class="search-icon"><i class="ti-search"></i></span>
-                            <input class="form-control" placeholder="Search here...">
-                        </div>
-                    </form>
                 </li>
             </ul>
             <!-- END TOP-LEFT TOOLBAR-->
@@ -82,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-pen"></i>
+                    <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-pencil"></i>
                         <span class="nav-label">Portfolio</span>
                     </a>
                 </li>
@@ -94,10 +87,11 @@
                 </li>
 
                 <li>
-                    <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
-                        <span class="nav-label">Contact</span>
+                    <a href="{{route('link.index')}}"><i class="sidebar-item-icon fa fa-link"></i>
+                        <span class="nav-label">Social Links</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
                         <span class="nav-label">Users</span>

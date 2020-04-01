@@ -22,6 +22,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','HomeController@admin')->name('admin');
     Route::resource('testimonial','TestimonialController');
     Route::resource('subscription','SubscriptionController');
+    Route::resource('link','LinkController');
 });
 
 Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){

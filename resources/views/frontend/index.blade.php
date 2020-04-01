@@ -107,9 +107,11 @@
         </div>
         <div class="social_links">
             <ul>
-                <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
+                @if(count($link) > 0)
+                    @foreach($link as $key=>$value)
+                        <li><a href="{{$value->link}}" target="_blank"> <i class="{{$value->class}}{{$value->name}}"></i> </a></li>
+                    @endforeach
+                @endif
             </ul>
         </div>
         <div class="container">
@@ -397,10 +399,11 @@
                 <div class="col-xl-6 col-md-6">
                     <div class="socail_links">
                         <ul>
-                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                            @if(count($link) > 0)
+                                @foreach($link as $key=>$value)
+                                    <li><a href="{{$value->link}}" target="_blank"> <i class="{{$value->class}}{{$value->name}}"></i> </a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </div>
