@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','FrontEndController@sendTestimonial')->name('all');
+Route::get('/blog','FrontEndController@getAllBlog')->name('get.blog');
+Route::get('/single/{id}','FrontEndController@getSpecificBlog')->name('specific.blog');
 Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

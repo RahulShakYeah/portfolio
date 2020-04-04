@@ -16,4 +16,5 @@ class Blog extends Model
     public function category(){
         return $this->hasOne(Category::class,'id','cat_id');
     }
+
 }
