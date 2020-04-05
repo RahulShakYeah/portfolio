@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="bradcam_text text-center">
-                    <h3>Blog</h3>
+                    <h3>You searched for the keyword {{$data}}</h3>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="blog_left_sidebar">
-                    @if(count($blog) > 0)
-                        @foreach($blog as $key=>$value)
+                    @if(count($search) > 0)
+                        @foreach($search as $key=>$value)
                             <article class="blog_item">
                                 <div class="blog_item_img">
                                     <img class="card-img rounded-0" src="{{asset('storage/blog/'.$value->image)}}"
@@ -52,10 +52,15 @@
                                 </div>
                             </article>
                         @endforeach
+                        @else
+                        <div class="alert alert-warning'">
+                            <p class="alert alert-warning">Nothing found in the database</p>
+                        </div>
                     @endif
+
                     <nav class="blog-pagination justify-content-center d-flex">
                         <ul class="pagination">
-                            {{$blog->links()}}
+                            {{$search->links()}}
                         </ul>
                     </nav>
                 </div>
@@ -155,7 +160,7 @@
                             }(document, 'script', 'facebook-jssdk'));</script>
                         <!-- End facebook page -->
 
-                </aside>
+                    </aside>
 
 
                     <aside class="single_sidebar_widget newsletter_widget" style="color:black !important;">

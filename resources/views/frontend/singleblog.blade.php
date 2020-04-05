@@ -48,6 +48,7 @@
                 @endif
                 <div class="navigation-top">
                     <div class="navigation-area">
+                        <h2>Comments</h2>
                         <div class="row">
                             <div class="fb-comments" data-href="{{\Request::url()}}" data-width="100%"
                                  data-numposts="10"></div>

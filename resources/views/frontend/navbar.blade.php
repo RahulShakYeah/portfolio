@@ -36,7 +36,7 @@
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="Appointment">
                             <div class="book_btn d-none d-lg-block">
-                                <a href="#">Contact Me</a>
+                                <a href="{{route('contact.view')}}">Contact Me</a>
                             </div>
                         </div>
                     </div>
