@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-pencil"></i>
+                    <a class="active" href="{{route('portfolio.index')}}"><i class="sidebar-item-icon fa fa-pencil"></i>
                         <span class="nav-label">Portfolio</span>
                     </a>
                 </li>
@@ -145,6 +145,9 @@
 <script>
     $(document).ready(function () {
         $('#usertable').DataTable();
+    });
+    $(document).ready(function () {
+        $('.summernote').summernote();
     });
 </script>
 </body>

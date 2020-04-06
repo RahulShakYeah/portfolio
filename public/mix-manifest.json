@@ -2,11 +2,9 @@
     "/js/admin.js": "/js/admin.js",
     "/js/app.js": "/js/app.js",
     "/css/blogger.css": "/css/blogger.css",
-    "/css/admin.css": "/css/admin.css",
     "/css/app.css": "/css/app.css",
     "/js/blogger.js": "/js/blogger.js",
-    "/js/frontend.js": "/js/frontend.js",
     "/js/manifest.js": "/js/manifest.js",
     "/js/vendor.js": "/js/vendor.js",
-    "/css/frontend.css": "/css/frontend.css"
+    "/css/admin.css": "/css/admin.css"
 }

@@ -28,6 +28,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::resource('testimonial','TestimonialController');
     Route::resource('subscription','SubscriptionController');
     Route::resource('link','LinkController');
+    Route::resource('portfolio','PortfolioController');
 });
 
 Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){

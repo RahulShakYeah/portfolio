@@ -11,6 +11,7 @@ use App\Link;
 use App\Category;
 use App\Blog;
 use Mail;
+use App\Portfolio;
 
 class FrontEndController extends Controller
 {
@@ -19,8 +20,9 @@ class FrontEndController extends Controller
         $category = Category::where('status', 'active')->get();
         $link = Link::where('status', 'active')->get();
         $about = About::get();
+        $portfolio = Portfolio::where('status','active')->orderBy('created_at','DESC')->limit(4)->get();
         $testimonial = Testimonial::orderBy('created_at', 'DESC')->where('status', 'active')->get();
-        return view('frontend.index', compact('testimonial', 'about', 'link', 'category'));
+        return view('frontend.index', compact('testimonial', 'about', 'link', 'category','portfolio'));
     }
 
     public function getAllBlog()
@@ -70,6 +72,6 @@ class FrontEndController extends Controller
         $data = $request->all();
         Mail::to('rahulshakya123rs@gmail.com')->send(new Notification($data));
         return redirect()->route('contact.view')->with('success', 'Thank you ! ' . $data['name'] . ' for contacting me. Will get back to you as soon as possible');
-     
+
     }
 }

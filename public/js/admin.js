@@ -209,6 +209,8 @@ __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap
 
 __webpack_require__(/*! metismenu */ "./node_modules/metismenu/dist/metisMenu.js");
 
+__webpack_require__(/*! summernote */ "./node_modules/summernote/dist/summernote.js");
+
 __webpack_require__(/*! jquery-slimscroll */ "./node_modules/jquery-slimscroll/jquery.slimscroll.js");
 
 __webpack_require__(/*! ../admintemplete/assets/js/app.min */ "./resources/admintemplete/assets/js/app.min.js");

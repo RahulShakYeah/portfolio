@@ -5,7 +5,7 @@
                 <div class="col-xl-6 col-md-6">
                     <div class="menu_links">
                         <ul>
-                            <li><a href="#">About</a></li>
+                            <li><a href="#about">About</a></li>
                             <li><a href="#">Services</a></li>
                             <li><a href="#">Portfolio</a></li>
                         </ul>
@@ -64,14 +64,11 @@
 <script src="{{asset('js/plugins.js')}}"></script>
 <script src="{{asset('js/gijgo.min.js')}}"></script>
 
-<!--contact js-->
-<script src="{{asset('js/contact.js')}}"></script>
-<script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
-<script src="{{asset('js/jquery.form.js')}}"></script>
-<script src="{{asset('js/jquery.validate.min.js')}}"></script>
-<script src="{{asset('js/mail-script.js')}}"></script>
-
 <script src="{{asset('js/mains.js')}}"></script>
+<script src="{{asset('js/smooth-scroll.polyfills.min.js')}}"></script>
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+</script>
 
 </body>
 

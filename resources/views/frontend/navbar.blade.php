@@ -6,7 +6,7 @@
                     <div class="col-xl-3 col-lg-2">
                         <div class="logo">
                             <a href="{{route('all')}}">
-                                <img src="{{asset('images/logo.png')}}" alt="">
+                                <img src="{{asset('images/logo.png')}}" style="margin-left: 25px;margin-top:-10px;width:80px;" alt="">
                             </a>
                         </div>
                     </div>
@@ -15,17 +15,17 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a class="active" href="{{route('all')}}">home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
                                     <li><a href="{{route('get.blog')}}">Blog</a></li>
                                     <li>
                                         @if (Route::has('login'))
                                             @auth
-                                                <a href="{{ url('/home') }}">Dashboard</a>
+                                                <a href="{{ url('/home') }}" target="_blank">Dashboard</a>
                                             @else
-                                                <a href="{{ route('login') }}">Login</a>
+                                                <a href="{{ route('login') }}" target="_blank">Login</a>
                                                 @if (Route::has('register'))
-                                                    <a href="{{ route('register') }}">Register</a>
+                                                    <a href="{{ route('register') }}" target="_blank">Register</a>
                                     @endif
                                     @endauth
                                     @endif
