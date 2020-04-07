@@ -145,7 +145,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Facebook Page</h4>
-                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Rahul-Shakya-101216388216855/" data-width="250px" data-height="180px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="true"></div>
+                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Rahul-Shakya-101216388216855/" data-width="450px" data-height="480px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="false"></div>
                         <script>(function(d, s, id) {
                                 var js, fjs = d.getElementsByTagName(s)[0];
                                 if (d.getElementById(id)) return;

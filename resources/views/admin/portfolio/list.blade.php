@@ -32,8 +32,10 @@
                             <td>{{$value->siteurl}}</td>
                             <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                             <td>
-                                <a href="" class="btn btn-success btn-sm" style="border-radius: 50px;"><i class="fa fa-edit"></i></a>
-                                <form action="" class="float-left mr-1">
+                                <a href="{{route('portfolio.edit',$value->id)}}" class="btn btn-success btn-sm" style="border-radius: 50px;"><i class="fa fa-edit"></i></a>
+                            <form action="{{route('portfolio.destroy',$value->id)}}" class="float-left mr-1" method="post">
+                                @csrf
+                                @method('delete')
                                     <button class="btn btn-danger btn-sm" style="border-radius: 50px"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>

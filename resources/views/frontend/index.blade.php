@@ -1,3 +1,5 @@
+
+
 @include('frontend.header')
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
@@ -107,10 +109,10 @@
         <div class="row">
             @if(count($portfolio) > 0)
                 @foreach($portfolio as $key=>$value)
-                    <div class="col-xl-6 col-md-6 ml-6">
+                    <div class="col-xl-5 col-md-5 ml-5">
                         <div class="single_Portfolio">
                             <div class="portfolio_thumb">
-                                <img src="{{asset('storage/portfolio/'.$value->image)}}" style="object-fit: cover;" alt="">
+                                <img src="{{asset('storage/portfolio/'.$value->image)}}">
                             </div>
                             <a href="{{asset('storage/portfolio/'.$value->image)}}" class="popup popup-image"></a>
                             <div class="portfolio_hover">

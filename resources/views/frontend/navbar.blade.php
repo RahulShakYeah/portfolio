@@ -33,6 +33,9 @@
                             </nav>
                         </div>
                     </div>
+
+
+
                     <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                         <div class="Appointment">
                             <div class="book_btn d-none d-lg-block">
@@ -43,6 +46,14 @@
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
+                    @if(session('error'))
+                    <div class="alert alert-warning alert-dismissible fade show offset-9 mt-3" role="alert">
+                        {{session('error')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        @endif
                 </div>
             </div>
         </div>

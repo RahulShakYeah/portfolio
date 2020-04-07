@@ -93,7 +93,7 @@
                 </li>
 
                 <li>
-                    <a href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
+                    <a href="{{route('user.index')}}"><i class="sidebar-item-icon fa fa-users"></i>
                         <span class="nav-label">Users</span>
                     </a>
                 </li>

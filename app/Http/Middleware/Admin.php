@@ -15,9 +15,13 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->role == "admin"){
+        if(auth()->user()->role == "admin" && auth()->user()->status =="active"){
             return $next($request);
         }else{
+            if(auth()->user()->status == "inactive"){
+                \Auth::logout();
+                return redirect()->route('all')->with("error","Sorry!Admin has turned you inactive for now!");
+            }
             return redirect()->route(auth()->user()->role);
         }
     }

@@ -26,9 +26,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','HomeController@admin')->name('admin');
     Route::resource('testimonial','TestimonialController');
-    Route::resource('subscription','SubscriptionController');
     Route::resource('link','LinkController');
     Route::resource('portfolio','PortfolioController');
+    Route::resource('user','UserController');
+    Route::get('/password/{id}','UserController@openPasswordForm')->name('open.form');
+    Route::post('/password/change','UserController@updatePassword')->name('update.password');
 });
 
 Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
