@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -36,7 +36,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:3|string',
+            'email' => 'required|email',
+            'password' => 'required',
+            'status' => 'required|in:active,inactive',
+            'role' => 'required|in:admin,blogger'
+        ]);
+
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->status = $request->get('status');
+        $user->role = $request->get('role');
+        $status = $user->save();
+        if ($status == true) {
+            return redirect()->route('user.index')->with('success', 'User added successfully');
+        } else {
+            return redirect()->route('user.index')->with('error', 'Error occured while adding the user');
+        }
     }
 
     /**

@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <h2 class="mt-3 mb-2">Users List
                 <a href="{{route('user.create')}}" class="btn btn-success btn-sm float-right"><i
-                        class="fa fa-plus"></i> Create Testimonial</a>
+                        class="fa fa-plus"></i> Add users</a>
             </h2>
             <hr>
         </div>

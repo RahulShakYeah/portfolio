@@ -52,6 +52,8 @@
                                 </div>
                             </article>
                         @endforeach
+                        @else
+                        <p class="alert alert-warning">No blogs available in the database</p>
                     @endif
                     <nav class="blog-pagination justify-content-center d-flex">
                         <ul class="pagination">
@@ -92,6 +94,8 @@
                                         </a>
                                     </li>
                                 @endforeach
+                                @else
+                                <p class="alert alert-warning">No category in the database</p>
                             @endif
                         </ul>
                     </aside>
@@ -110,6 +114,8 @@
                                     </div>
                                 </div>
                             @endforeach
+                            @else
+                            <p class="alert alert-warning"> No New Recent Posts</p>
                         @endif
                     </aside>
                     <aside class="single_sidebar_widget tag_cloud_widget">
