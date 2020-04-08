@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,6 +32,7 @@ class HomeController extends Controller
     }
 
     public function blogger(){
-        return view('blogger.index');
+        $blog = Blog::orderBy('created_at','DESC')->get();
+        return view('blogger.index')->with('blog',$blog);
     }
 }

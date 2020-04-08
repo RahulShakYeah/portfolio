@@ -21,6 +21,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="status" class="col-3">Status</label>
+                                    <div class="col-sm-9">
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="active">Publish</option>
+                                            <option value="inactive">Un-Publish</option>
+                                        </select>
+                                        @error('status')
+                                        <p class="alert-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.box-body -->
 
@@ -33,7 +45,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <small><em>Any Album added will be reviewed and published by the admin</em></small>
+                    <small><em>Rahul Shakya &copy; 2020</em></small>
                 </div>
             </div>
         </div>

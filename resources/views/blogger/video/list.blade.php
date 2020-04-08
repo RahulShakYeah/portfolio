@@ -27,17 +27,15 @@
                             <td>{{$value->title}}</td>
                             <td>
                                 <iframe src="https://www.youtube.com/embed/<?php echo $value->video_id?>"
-                                        frameborder="0" allow="accelerometer" width="200px" height="100px" allowfullscreen></iframe>
+                                        frameborder="0" allow="accelerometer" width="200px" height="100px"
+                                        allowfullscreen></iframe>
                             </td>
                             <td>{{$value->user->name}}</td>
-                            @if($value->status == "inactive")
-                                <td><span class="badge badge-danger">Under-review</span></td>
-                            @else
-                                <td><span class="badge badge-success">Publish</span></td>
-                            @endif
+                            <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                             @if(auth()->user()->id == $value->added_by)
                                 <td>
-                                    <form action="{{route('video.destroy',$value->id)}}" method="post">
+                                    <a href="{{route('edit.video',$value->id)}}" class="btn btn-primary btn-sm ml-1 mt-2" style="border-radius: 50px"><i class="fa fa-edit"></i></a>
+                                    <form class="float-left" action="{{route('video.destroy',$value->id)}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-danger btn-sm mt-2" style="border-radius: 50px"><i

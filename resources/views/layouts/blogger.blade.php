@@ -28,7 +28,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link text-center" style="text-transform: uppercase">
+        <a href="javascript:;" class="brand-link text-center" style="text-transform: uppercase">
             <span class="brand-text font-weight-light">Blogger</span>
         </a>
 
@@ -134,11 +134,9 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; 2020 Rahul Shakya</strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.3-pre
-        </div>
+
     </footer>
 
     <!-- Control Sidebar -->
@@ -152,10 +150,8 @@
 <script src="{{asset('js/manifest.js')}}"></script>
 <script src="{{asset('js/vendor.js')}}"></script>
 <script src="{{asset('js/blogger.js')}}"></script>
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
 <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#usertable').DataTable();
@@ -164,6 +160,38 @@
         $('.summernote').summernote();
     });
 </script>
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+    let chart = new Chart(myChart,{
+        type:'line',//bar,horizontalBar,pie,line,doughnut,radar,polarArea
+        data:{
+            labels:['Category','Posts','Album','Videos'],
+            datasets:[{
+                label:"Blog",
+                data:[
+                    {{\App\Category::where('status','active')->count()}},
+                    {{\App\Blog::where('status','active')->count()}},
+                    {{\App\Album::where('status','active')->count()}},
+                    {{\App\Video::where('status','active')->count()}},
+                ],
+                backgroundColor:[
+                    'rgba(255,99,132,0.6)',
+                    'rgba(54,162,235,0.6)',
+                    'rgba(255,206,86,0.6)',
+                    'rgba(75,192,192,0.6)',
+                    'rgba(255,159,65,0.6)'
+                ]
+            }]
+        },
+        options:{}
+    });
+
+</script>
+
+</body>
+
+</html>
+
 
 
 </body>

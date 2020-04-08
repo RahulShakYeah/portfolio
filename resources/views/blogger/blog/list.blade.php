@@ -34,26 +34,17 @@
                             @else
                                 <td><span class="badge badge-dark">No Image Uploaded</span></td>
                             @endif
-                            @if($value->status == "inactive")
-                                <td>
-                                    <span class="badge badge-danger">Under-review</span>
-                                </td>
-                            @else
-                                <td>
-                                    <span class="badge badge-success">{{$value->status}}</span>
-                                </td>
-                            @endif
+                            <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                             <td>{{$value->user->name}}</td>
                             <td>{{$value->category->name}}</td>
                             @if(auth()->user()->id == $value->added_by)
                                 <td>
 
-                                    <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success btn-sm " style="border-radius: 60px;"><i class="fa fa-edit"></i></a>&nbsp;
+                                    <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success btn-sm ml-1 " style="border-radius: 60px;"><i class="fa fa-edit"></i></a>&nbsp;
                                     <form method="DELETE" action="{{route('blog.delete',$value->id)}}" method="post" class="float-left">
                                         @method('delete')
                                             <button class="btn btn-danger btn-sm" style="border-radius: 50px" type="submit">
                                             <i class="fa fa-trash"></i></button>
-
                                     </form>
                                 </td>
                             @else

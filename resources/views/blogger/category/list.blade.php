@@ -27,17 +27,16 @@
                             <td>{{$value->name}}</td>
                             <td>{{$value->summary}}</td>
                             <td>{{$value->user->name}}</td>
-                            @if($value->status == "inactive")
-                                <td><span class="badge badge-danger">Under-review</span></td>
-                            @else
-                                <td><span class="badge badge-success">Publish</span></td>
-                            @endif
+                            <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-publish"}}</span></td>
                             @if(auth()->user()->id == $value->added_by)
                                 <td>
-                                    <form method="DELETE" action="{{route('blogger.destroy',$value->id)}}" method="post">
+                                    <a href="{{route('cat.edit',$value->id)}}" class="btn btn-primary btn-sm mt-2" style="border-radius: 50px;"><i class="fa fa-edit"></i></a>
+                                    <form class="float-left mr-1" method="DELETE" action="{{route('blogger.destroy',$value->id)}}"
+                                          method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm mt-2" style="border-radius: 50px"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2"
+                                                style="border-radius: 50px"><i class="fa fa-trash"></i></button>
                                     </form>
 
                                 </td>

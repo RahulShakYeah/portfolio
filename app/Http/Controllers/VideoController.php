@@ -39,12 +39,20 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'videourl' => 'required',
+            'summary' => 'sometimes',
+            'status' => 'required|in:active,inactive'
+        ]);
+
         $video = new Video();
         $video->title = $request->get('name');
         $video->summary = $request->get('summary');
         $video->video_link = $request->get('videourl');
         $video_id = $video->getYoutubeVideoId($request->get('videourl'));
         $video->added_by = auth()->user()->id;
+        $video->status = $request->get('status');
         $video->video_id = $video_id;
         $status = $video->save();
         if($status == true) {
@@ -73,7 +81,8 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-
+        $video = Video::findOrFail($id);
+        return view('blogger.video.edit')->with('video',$video);
     }
 
     /**
@@ -83,8 +92,29 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'videourl' => 'required',
+            'summary' => 'sometimes',
+            'status' => 'required|in:active,inactive'
+        ]);
+
+        $id = $request->get('id');
+        $video = Video::findOrFail($id);
+        $video->title = $request->get('name');
+        $video->summary = $request->get('summary');
+        $video->video_link = $request->get('videourl');
+        $video_id = $video->getYoutubeVideoId($request->get('videourl'));
+        $video->status = $request->get('status');
+        $video->video_id = $video_id;
+        $status = $video->save();
+        if($status == true) {
+            return redirect()->route('video.index')->with('success', 'Video updated successfully');
+        }else{
+            return redirect()->route('video.create')->with('error', 'Error occured while updating the video');
+        }
     }
 
     /**

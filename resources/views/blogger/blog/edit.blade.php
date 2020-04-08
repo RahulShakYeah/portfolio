@@ -85,6 +85,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="status" class="col-3">Status</label>
+                                    <div class="col-sm-9">
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="active" {{$blog->status == "active"?"selected":""}}>Publish</option>
+                                            <option value="inactive" {{$blog->status == "inactive"?"selected":""}}>Un-Publish</option>
+                                        </select>
+                                        @error('status')
+                                        <p class="alert-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.box-body -->
 

@@ -36,11 +36,13 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|min:3'
+            'name' => 'required|min:3',
+            'status' => 'required|in:active,inactive'
         ]);
 
         $album = new Album();
         $album->name = $request->get('name');
+        $album->status = $request->get('status');
         $album->added_by = auth()->user()->id;
         $status = $album->save();
         if($status == true) {
@@ -69,7 +71,8 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $album = Album::findOrFail($id);
+        return view('blogger.Album.edit')->with('album',$album);
     }
 
     /**
@@ -79,9 +82,23 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|min:3',
+            'status' => 'required|in:active,inactive'
+        ]);
+        $id = $request->get('id');
+        $album = Album::findOrFail($id);
+        $album->name = $request->get('name');
+        $album->status = $request->get('status');
+        $album->added_by = auth()->user()->id;
+        $status = $album->save();
+        if($status == true) {
+            return redirect()->route('album.index')->with('success', 'Album updated successfully');
+        }else{
+            return redirect()->route('album.create')->with('error', 'Error occured while updating the album');
+        }
     }
 
     /**

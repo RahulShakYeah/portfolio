@@ -38,6 +38,8 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::get('/list','CategoryController@index')->name('blogger.list');
     Route::get('/create','CategoryController@create')->name('category.creation');
     Route::post('/store','CategoryController@store')->name('blogger.store');
+    Route::get('/cat/edit/{id}','CategoryController@edit')->name('cat.edit');
+    Route::post('/cat/update/{id}','CategoryController@update')->name('cat.update');
     Route::get('/{id}/delete','CategoryController@destroy')->name('blogger.destroy');
     Route::get('/blog','BlogController@index')->name('blog.list');
     Route::get('/blog/create','BlogController@create')->name('blog.create');
@@ -50,4 +52,8 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::resource('image','ImageController');
     Route::get('/image/add/{id}','ImageController@add')->name('image.add');
     Route::get('/image/list/{id}','ImageController@showImage')->name('show.list');
+    Route::get('/album/name/edit/{id}','AlbumController@edit')->name('name.album');
+    Route::post('/album/name/update','AlbumController@update')->name('name.update');
+    Route::get('/video/edit/{id}','VideoController@edit')->name('edit.video');
+    Route::post('/video/update','VideoController@update')->name('update.video');
 });

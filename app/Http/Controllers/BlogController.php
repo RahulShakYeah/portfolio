@@ -21,6 +21,7 @@ class BlogController extends Controller
             "summary" => "required",
             "description" => "required",
             "image" => "sometimes|image",
+            "status" => "required|in:active,inactive",
             "is_featured" => "sometimes|in:1",
             "category" => "required|exists:categories,id"
         ]);
@@ -38,6 +39,7 @@ class BlogController extends Controller
         $blog->title = $request->get('title');
         $blog->summary = $request->get('summary');
         $body = htmlentities(request()->get('description'));
+        $blog->status = $request->get('status');
         $blog->description = $body;
         if(request()->get('is_featured') == null){
             $data = 0;
@@ -51,6 +53,11 @@ class BlogController extends Controller
         $blog->save();
         return redirect()->route('blog.list')->with('success','Blog added successfully');
 
+    }
+
+    public function indexPage(){
+        $blog = Blog::orderBy('createad_at','DESC')->get();
+        return view('blogger.index')->with('blog',$blog);
     }
 
     public function destroy($id){
@@ -82,6 +89,7 @@ class BlogController extends Controller
             "summary" => "required",
             "description" => "required",
             "is_featured" => "sometimes|in:1",
+            "status" => "required|in:active,inactive",
             "category" => "required|exists:categories,id"
         ]);
         if($request->hasFile('image')){
@@ -114,7 +122,7 @@ class BlogController extends Controller
                 \File::delete($path);
             }
         }
-        $blog->added_by = auth()->user()->id;
+        $blog->status = $request->get('status');
         $blog->image = $fileNameToStore;
         $blog->save();
 

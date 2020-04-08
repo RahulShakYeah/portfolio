@@ -25,25 +25,26 @@
                             <td>{{$key+1}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->user->name}}</td>
-                            @if($value->status == "inactive")
-                                <td><span class="badge badge-danger">Under-review</span></td>
-                            @else
-                                <td><span class="badge badge-success">Publish</span></td>
-                            @endif
+                            <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                             @if(auth()->user()->id == $value->added_by)
                                 <td>
-                                    <a href="{{route('image.add',$value->id)}}" class="btn btn-primary btn-sm ml-1 mt-2" style="border-radius: 50px"><i class="fa fa-images"></i></a>
-                                    <a href="{{route('show.list',$value->id)}}" class="btn btn-success btn-sm mt-2" style="border-radius: 50px"><i class="fa fa-eye"></i></a>
-                                    <form class="float-left" action="{{route('album.destroy',$value->id)}}" method="post">
+                                    <a href="{{route('name.album',$value->id)}}" class="btn btn-warning btn-sm mt-2 ml-1" style="border-radius: 50px"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('image.add',$value->id)}}" class="btn btn-primary btn-sm ml-1 mt-2"
+                                       style="border-radius: 50px"><i class="fa fa-images"></i></a>
+                                    <a href="{{route('show.list',$value->id)}}" class="btn btn-success btn-sm mt-2"
+                                       style="border-radius: 50px"><i class="fa fa-eye"></i></a>
+                                    <form class="float-left" action="{{route('album.destroy',$value->id)}}"
+                                          method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm mt-2" style="border-radius: 50px"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2"
+                                                style="border-radius: 50px"><i class="fa fa-trash"></i></button>
                                     </form>
 
                                 </td>
                             @else
                                 <td>
-                                    <span class="badge badge-warning">Only the author can delete the category</span>
+                                    <span class="badge badge-warning">Only the author can delete the Album</span>
                                 </td>
                             @endif
                         </tr>
