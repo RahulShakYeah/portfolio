@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Notification;
+use App\Video;
 use Illuminate\Http\Request;
 use App\Testimonial;
 use App\About;
@@ -12,6 +13,7 @@ use App\Category;
 use App\Blog;
 use Mail;
 use App\Portfolio;
+use Illuminate\Support\Facades\Session;
 
 class FrontEndController extends Controller
 {
@@ -38,6 +40,11 @@ class FrontEndController extends Controller
     {
         $link = Link::where('status', 'active')->get();
         $blog = Blog::findOrFail($id);
+        $blogKey = 'blog_'.$blog->id;
+        if(!Session::has($blogKey)){
+            $blog->increment('view_count');
+            Session::put($blogKey,1);
+        }
         $related = Blog::where('id', '!=', $id)
             ->where('cat_id', '=', $blog->cat_id)
             ->get();
@@ -73,5 +80,15 @@ class FrontEndController extends Controller
         Mail::to('rahulshakya123rs@gmail.com')->send(new Notification($data));
         return redirect()->route('contact.view')->with('success', 'Thank you ! ' . $data['name'] . ' for contacting me. Will get back to you as soon as possible');
 
+    }
+
+    public function video(){
+        $link = Link::where('status', 'active')->get();
+        $video = Video::where('status','active')->paginate(12);
+        if(\Auth::check()) {
+            return view('frontend.video', compact('link','video'));
+        }else{
+            return redirect()->route('all')->with('error','Sorry you are not authorized to access the video page');
+        }
     }
 }

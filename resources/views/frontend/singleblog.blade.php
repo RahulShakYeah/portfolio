@@ -36,7 +36,8 @@
                         <div class="blog_details">
                             <h2>{{$blog->title}}</h2>
                             <ul class="blog-info-link mt-3 mb-4">
-                                <li><a href="#"><i class="fa fa-user"></i> {{$blog->category->name}}</a></li>
+                                <li><a href="javascript:;"><i class="fa fa-user"></i> {{$blog->category->name}}</a></li>
+                                <li><a href="javascript:;"><i class="fa fa-eye"></i> {{$blog->view_count}}</a></li>
                             </ul>
                             <p>
                                 {!! html_entity_decode($blog->description) !!}

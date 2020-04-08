@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5a1ee21-5aa2-4bea-bfed-15bd4400dcc2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/blogger/Album/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blogger/category/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blogger/video/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/video.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AlbumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AlbumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VideoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/Album/alist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/Album/alist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/Album/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/Album/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/category/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/category/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/category/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/category/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/video/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/video/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/video/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/video/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/blogger.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +205,7 @@
       <workItem from="1586175388241" duration="3000" />
       <workItem from="1586244556708" duration="5000" />
       <workItem from="1586251016128" duration="12663000" />
-      <workItem from="1586333635214" duration="5444000" />
+      <workItem from="1586333635214" duration="9117000" />
     </task>
     <servers />
   </component>

@@ -19,6 +19,7 @@ Route::get('/single/{id}','FrontEndController@getSpecificBlog')->name('specific.
 Route::post('/search','FrontEndController@search')->name('blog.search');
 Route::get('/contact','FrontEndController@contactView')->name('contact.view');
 Route::post('/contactdata','FrontEndController@contactData')->name('contact.data');
+Route::get('/video','FrontEndController@video')->name('video');
 Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

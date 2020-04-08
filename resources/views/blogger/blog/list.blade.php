@@ -16,6 +16,7 @@
                 <th>Title</th>
                 <th>Summary</th>
                 <th>Image</th>
+                <th>Visitors</th>
                 <th>Status</th>
                 <th>Added by</th>
                 <th>Category</th>
@@ -34,6 +35,7 @@
                             @else
                                 <td><span class="badge badge-dark">No Image Uploaded</span></td>
                             @endif
+                            <td>{{$value->view_count}}</td>
                             <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                             <td>{{$value->user->name}}</td>
                             <td>{{$value->category->name}}</td>

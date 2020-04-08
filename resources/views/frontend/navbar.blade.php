@@ -18,7 +18,7 @@
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
                                     @auth
-                                    <li><a href="services.html">Videos</a></li>
+                                    <li><a href="{{route('video')}}">Video</a></li>
                                     @endauth
                                     <li><a href="{{route('get.blog')}}">Blog</a></li>
                                     <li>
