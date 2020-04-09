@@ -17,6 +17,7 @@
                                     <li><a class="active" href="{{route('all')}}">home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
+                                    <li><a href="{{route('corona.index')}}">Corona</a></li>
                                     @auth
                                     <li><a href="{{route('video')}}">Video</a></li>
                                     @endauth
