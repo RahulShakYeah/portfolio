@@ -21,6 +21,13 @@ Route::get('/contact','FrontEndController@contactView')->name('contact.view');
 Route::post('/contactdata','FrontEndController@contactData')->name('contact.data');
 Route::get('/video','FrontEndController@video')->name('video');
 Route::get('/corona','CoronaController@index')->name('corona.index');
+Route::get('/download',function(){
+    $file = public_path()."/Rahul_CV.docx";
+    $headers = array(
+        'Content-Type: application/docx',
+    );
+    return Response::download($file,"Rahul_CV.docx",$headers);
+});
 Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

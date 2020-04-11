@@ -48,7 +48,6 @@
                                     <p>{{$value->summary}}</p>
                                     <ul class="blog-info-link">
                                         <li><a href="javascript:;"><i class="fa fa-user"></i> {{$value->category->name}}</a></li>
-                                        <li><a href="javascript:;"><i class="fa fa-eye"></i> {{$value->view_count}}</a></li>
                                     </ul>
                                 </div>
                             </article>

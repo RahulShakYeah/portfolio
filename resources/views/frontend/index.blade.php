@@ -49,8 +49,8 @@
             <div class="col-xl-12">
                 <div class="section_title text-center mb-65">
                     <span>Service Provided</span>
-                    <h3>Build brands campaigns <br>
-                        & digital projects</h3>
+                    <h3>Services that I can provide to<br>
+                        YOU</h3>
                 </div>
             </div>
         </div>
@@ -154,7 +154,7 @@
                             @endforeach
                         @endif
                         <div class="download_cv">
-                            <a class="boxed-btn3" href="#">Download CV</a>
+                            <a class="boxed-btn3" href="/download">Download CV</a>
                         </div>
                     </div>
                 </div>

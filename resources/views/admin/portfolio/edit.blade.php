@@ -78,7 +78,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-sm-4">
-                                        <img src="{{asset('storage/portfolio/'.$portfolio->image)}}" alt="">
+                                        <img src="{{asset('uploads/portfolio/'.$portfolio->image)}}" alt="">
                                     </div>
                                 </div>
 

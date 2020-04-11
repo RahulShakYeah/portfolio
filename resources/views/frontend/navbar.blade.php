@@ -17,8 +17,8 @@
                                     <li><a class="active" href="{{route('all')}}">home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
-                                    <li><a href="{{route('corona.index')}}">Corona</a></li>
                                     @auth
+                                    <li><a href="{{route('corona.index')}}">Corona</a></li>
                                     <li><a href="{{route('video')}}">Video</a></li>
                                     @endauth
                                     <li><a href="{{route('get.blog')}}">Blog</a></li>
@@ -51,13 +51,14 @@
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>
                     @if(session('error'))
-                    <div class="alert alert-warning alert-dismissible fade show offset-9 mt-3" role="alert">
-                        {{session('error')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                        @endif
+                        <div class="alert alert-warning alert-dismissible fade show offset-9 mt-3"
+                             style="position: fixed" role="alert">
+                            {{session('error')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

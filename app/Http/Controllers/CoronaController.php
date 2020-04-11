@@ -15,7 +15,10 @@ class CoronaController extends Controller
         $world = json_decode($responsew,true);
         $news = json_decode($responsen,true);
         $data = json_decode($response,true);
-        return view('frontend.corona.coronaindex',compact('response','link','world','news'));
-        dd($response->json());
+        if(\Auth::check()) {
+            return view('frontend.corona.coronaindex', compact('response', 'link', 'world', 'news'));
+        }else{
+            return redirect()->route('all')->with('error','Sorry you are not authorized to access the corona update page');
+        }
     }
 }

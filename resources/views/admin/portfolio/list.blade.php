@@ -27,7 +27,7 @@
                             <td>{{$key+1}}</td>
                             <td>{{$value->title}}</td>
                             <td>{{substr($value->summary,0,50)}}</td>
-                            <td><img src="{{asset('storage/portfolio/'.$value->image)}}" style="max-width: 100px" alt="{{$value->title}}"></td>
+                            <td><img src="{{asset('uploads/portfolio/'.$value->image)}}" style="max-width: 100px" alt="{{$value->title}}"></td>
                             <td>{{$value->giturl}}</td>
                             <td>{{$value->siteurl}}</td>
                             <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
