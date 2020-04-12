@@ -46,6 +46,7 @@ class FrontEndController extends Controller
             Session::put($blogKey,1);
         }
         $related = Blog::where('id', '!=', $id)
+            ->where('status','active')
             ->where('cat_id', '=', $blog->cat_id)
             ->get();
         return view('frontend.singleblog', compact('blog', 'link', 'related'));

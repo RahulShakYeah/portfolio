@@ -30,7 +30,7 @@
                             <td>{{$value->title}}</td>
                             <td>{{substr($value->summary,0,50)}}</td>
                             @if($value->image != "noimage.jpg")
-                                <td><img src="{{asset('storage/blog/'.$value->image)}}" style="max-width: 100px"
+                                <td><img src="{{asset('uploads/blog/'.$value->image)}}" style="max-width: 100px"
                                          alt="{{$value->title}}"></td>
                             @else
                                 <td><span class="badge badge-dark">No Image Uploaded</span></td>

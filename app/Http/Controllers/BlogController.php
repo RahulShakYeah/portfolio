@@ -25,14 +25,15 @@ class BlogController extends Controller
             "is_featured" => "sometimes|in:1",
             "category" => "required|exists:categories,id"
         ]);
-        if($request->hasFile('image')){
-            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = "Blog_".time().rand(0,999).$fileName.'.'.$extension;
-            $path = $request->file('image')->storeAs('public/blog',$fileNameToStore);
-        }else{
-            $fileNameToStore = "noimage.jpg";
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/uploads/blog';
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = 'Blog_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
         }
 
         $blog = new Blog();
@@ -63,7 +64,7 @@ class BlogController extends Controller
     public function destroy($id){
         $blog = Blog::findOrFail($id);
         if(auth()->user()->id == $blog->added_by) {
-            $path = "storage/blog/" . $blog->image;
+            $path = "uploads/blog/" . $blog->image;
             if (\File::exists($path)) {
                 \File::delete($path);
             }
@@ -92,17 +93,22 @@ class BlogController extends Controller
             "status" => "required|in:active,inactive",
             "category" => "required|exists:categories,id"
         ]);
-        if($request->hasFile('image')){
-            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = "Blog_".time().rand(0,999).$fileName.'.'.$extension;
-            $path = $request->file('image')->storeAs('public/blog',$fileNameToStore);
-        }else{
-            $fileNameToStore=false;
-        }
+
         $id = $request->get('id');
         $blog = Blog::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $old_path = public_path() . '/uploads/blog/' . $blog->image;
+
+            if (\File::exists($old_path)) {
+                \File::delete($old_path);
+            }
+
+            $path = public_path() . '/uploads/blog/';
+            $filename = 'Blog_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $filename);
+
+        }
         $blog->title = $request->get('title');
         $blog->summary = $request->get('summary');
         $body = htmlentities(request()->get('description'));
@@ -114,16 +120,8 @@ class BlogController extends Controller
         }
         $blog->is_featured = $data;
         $blog->cat_id = $request->get('category');
-        if($fileNameToStore == false){
-            $fileNameToStore = $blog->image;
-        }elseif($fileNameToStore){
-            $path = "storage/blog/".$blog->image;
-            if(\File::exists($path)){
-                \File::delete($path);
-            }
-        }
         $blog->status = $request->get('status');
-        $blog->image = $fileNameToStore;
+        $blog->image = $filename;
         $blog->save();
 
         return redirect()->route('blog.list')->with('success','Blog data updated successfully');

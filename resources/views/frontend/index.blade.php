@@ -112,9 +112,9 @@
                     <div class="col-xl-5 col-md-5 ml-5">
                         <div class="single_Portfolio">
                             <div class="portfolio_thumb">
-                                <img src="{{asset('storage/portfolio/'.$value->image)}}">
+                                <img src="{{asset('uploads/portfolio/'.$value->image)}}">
                             </div>
-                            <a href="{{asset('storage/portfolio/'.$value->image)}}" style="background-attachment: cover" class="popup popup-image"></a>
+                            <a href="{{asset('uploads/portfolio/'.$value->image)}}" style="background-attachment: cover" class="popup popup-image"></a>
                             <div class="portfolio_hover">
                                 <div class="title">
                                     <h3>{{$value->title}}</h3>

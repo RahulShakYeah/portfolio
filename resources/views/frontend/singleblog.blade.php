@@ -31,7 +31,7 @@
                 @if($blog != null)
                     <div class="single-post">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{asset('storage/blog/'.$blog->image)}}" alt="{{$blog->title}}">
+                            <img class="img-fluid" src="{{asset('uploads/blog/'.$blog->image)}}" alt="{{$blog->title}}">
                         </div>
                         <div class="blog_details">
                             <h2>{{$blog->title}}</h2>

@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f5a1ee21-5aa2-4bea-bfed-15bd4400dcc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CoronaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CoronaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PortfolioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PortfolioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/portfolio/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/portfolio/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/portfolio/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/portfolio/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,6 +210,8 @@
       <workItem from="1586590737899" duration="4809000" />
       <workItem from="1586604827209" duration="1381000" />
       <workItem from="1586607786354" duration="1633000" />
+      <workItem from="1586616657106" duration="3094000" />
+      <workItem from="1586679972069" duration="2145000" />
     </task>
     <servers />
   </component>
@@ -240,13 +239,13 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585474737871" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1586607834170">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1586680156389">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1586498454856" />
     <state x="2308" y="287" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@1920.0.1280.994" timestamp="1586244556708" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054067486" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1586607834170" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1586680156389" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1586337924699">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

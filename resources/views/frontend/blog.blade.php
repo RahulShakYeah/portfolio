@@ -33,7 +33,7 @@
                         @foreach($blog as $key=>$value)
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="{{asset('storage/blog/'.$value->image)}}"
+                                    <img class="card-img rounded-0" src="{{asset('uploads/blog/'.$value->image)}}"
                                          alt="">
                                     <a href="#" class="blog_item_date">
                                         <h3>{{date('d',strtotime($value->created_at))}}</h3>
@@ -105,7 +105,7 @@
                         @if(count($recent) > 0)
                             @foreach($recent as $key=>$value)
                                 <div class="media post_item">
-                                    <img src="{{asset('storage/blog/'.$value->image)}}" style="max-width: 100px" alt="post">
+                                    <img src="{{asset('uploads/blog/'.$value->image)}}" style="max-width: 100px" alt="post">
                                     <div class="media-body">
                                         <a href="{{route('specific.blog',$value->id)}}">
                                             <h3>{{$value->title}}</h3>
@@ -151,7 +151,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Facebook Page</h4>
-                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Rahul-Shakya-101216388216855/" data-width="450px" data-height="480px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="false"></div>
+                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Trendy-world-109705210700581/?ref=aymt_homepage_panel&eid=ARCTGqEgrDLib3I0uPmI0Fj1q42I2jRtsIHrk-y7pXwYFP4kRBMoROdB6ASrEkwbHUxQ7hZTrBhGMUT9" data-width="450px" data-height="480px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="false"></div>
                         <script>(function(d, s, id) {
                                 var js, fjs = d.getElementsByTagName(s)[0];
                                 if (d.getElementById(id)) return;
