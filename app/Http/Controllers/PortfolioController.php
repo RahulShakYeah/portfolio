@@ -52,7 +52,6 @@ class PortfolioController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $path = public_path() . '/uploads/portfolio';
-            $extension = $file->getClientOriginalExtension();
             $fileNameToStore = 'Portfolio_' . time() . rand(0, 999) . $file->getClientOriginalName();
             $file->move($path, $fileNameToStore);
 

@@ -41,10 +41,11 @@ class ImageController extends Controller
         $album_id = $request->get('album_id');
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $image) {
-                $path = $image->store('album', 'public');
-
+                $path = public_path() . '/uploads/albums';
+                $fileNameToStore = 'Albums_' . time() . rand(0, 999) . $image->getClientOriginalName();
+                $image->move($path, $fileNameToStore);
                 $image = new Image();
-                $image->image = $path;
+                $image->image = $fileNameToStore;
                 $image->album_id = $album_id;
                 $image->save();
 
@@ -99,7 +100,7 @@ class ImageController extends Controller
     public function destroy($id)
     {
        $image = Image::findOrFail($id);
-       $path = 'storage/'.$image->image;
+       $path = 'uploads/albums/'.$image->image;
        if(\File::exists($path)){
            \File::delete($path);
        }

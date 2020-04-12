@@ -19,7 +19,7 @@
                     @foreach($images as $key=>$value)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td><img src="{{asset('storage/'.$value->image)}}" style="max-width: 100px"></td>
+                            <td><img src="{{asset('uploads/albums/'.$value->image)}}" style="max-width: 100px"></td>
                             <td>{{$value->album->name}}</td>
                             <td>
                                 <form class="float-left" action="{{route('image.destroy',$value->id)}}" method="post">
