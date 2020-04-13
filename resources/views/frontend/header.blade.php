@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/slicknav.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
 
 
 

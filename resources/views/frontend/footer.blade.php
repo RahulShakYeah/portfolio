@@ -66,6 +66,12 @@
 
 <script src="{{asset('js/mains.js')}}"></script>
 <script src="{{asset('js/smooth-scroll.polyfills.min.js')}}"></script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        $('#usertable').DataTable();
+    });
+</script>
 <script>
     var scroll = new SmoothScroll('a[href*="#"]');
 </script>

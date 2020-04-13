@@ -10,7 +10,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-7">
+                    <div class="col-xl-6 col-lg-7" >
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
@@ -18,10 +18,14 @@
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
                                     @auth
-                                    <li><a href="{{route('corona.index')}}">Corona</a></li>
                                     <li><a href="{{route('video')}}">Video</a></li>
                                     @endauth
-                                    <li><a href="{{route('get.blog')}}">Blog</a></li>
+                                    <li><a href="javascript:;">Blog <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a href="{{route('get.blog')}}">blog</a></li>
+                                            <li><a href="{{route('corona.index')}}">Corona Update</a></li>
+                                        </ul>
+                                    </li>
                                     <li>
                                         @if (Route::has('login'))
                                             @auth

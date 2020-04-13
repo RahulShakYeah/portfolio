@@ -54,7 +54,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <img src="{{asset('storage/blog/'.$blog->image)}}" style="max-width: 200px"
+                                        <img src="{{asset('uploads/blog/'.$blog->image)}}" style="max-width: 200px"
                                              alt="">
                                     </div>
                                 </div>
