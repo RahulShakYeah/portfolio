@@ -23,6 +23,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="meta_title" class="col-3">Meta Title</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="meta_title" name="metatitle"
+                                               placeholder="Enter blog meta title in comma separated value">
+                                        @error('metatitle')
+                                        <p class="alert-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label for="summernote" class="col-3">Blog Description</label>
                                     <div class="col-sm-9">
                                         <textarea name="description" class="summernote" ></textarea>

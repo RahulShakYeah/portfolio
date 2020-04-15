@@ -18,6 +18,7 @@ class CreateBlogTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->text('summary');
+            $table->string('meta-title');
             $table->enum('status',['active','inactive'])->default('inactive');
             $table->integer('view_count')->default('0');
             $table->string('image')->nullable();

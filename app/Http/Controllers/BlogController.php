@@ -19,6 +19,7 @@ class BlogController extends Controller
         $this->validate($request,[
             "title" => "required|min:3",
             "summary" => "required",
+            'metatitle' => "required",
             "description" => "required",
             "image" => "sometimes|image",
             "status" => "required|in:active,inactive",
@@ -38,6 +39,7 @@ class BlogController extends Controller
 
         $blog = new Blog();
         $blog->title = $request->get('title');
+        $blog->metatitle = $request->get('metatitle');
         $blog->summary = $request->get('summary');
         $body = htmlentities(request()->get('description'));
         $blog->status = $request->get('status');
@@ -87,13 +89,13 @@ class BlogController extends Controller
     public function update(Request $request){
         $this->validate($request,[
             "title" => "required|min:3",
+            "metatitle" => "required",
             "summary" => "required",
             "description" => "required",
             "is_featured" => "sometimes|in:1",
             "status" => "required|in:active,inactive",
             "category" => "required|exists:categories,id"
         ]);
-
         $id = $request->get('id');
         $blog = Blog::findOrFail($id);
         if ($request->hasFile('image')) {
@@ -108,9 +110,12 @@ class BlogController extends Controller
             $filename = 'Blog_' . time() . rand(0, 999) . $file->getClientOriginalName();
             $file->move($path, $filename);
 
+        }else{
+            $filename = $blog->image;
         }
         $blog->title = $request->get('title');
         $blog->summary = $request->get('summary');
+        $blog->metatitle = $request->get('metatitle');
         $body = htmlentities(request()->get('description'));
         $blog->description = $body;
         if(request()->get('is_featured') == null){
@@ -123,8 +128,6 @@ class BlogController extends Controller
         $blog->status = $request->get('status');
         $blog->image = $filename;
         $blog->save();
-
         return redirect()->route('blog.list')->with('success','Blog data updated successfully');
-
     }
 }
