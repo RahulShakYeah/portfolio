@@ -18,7 +18,8 @@ class BlogTableSeeder extends Seeder
                 'status' => 'inactive',
                 'is_featured' => '1',
                 'added_by' => '1',
-                'meta-title' => 'meta,title,metatitle,titlemeta',
+                'slug' => \Str::slug('asdasd'),
+                'metatitle' => 'meta,title,metatitle,titlemeta',
                 'summary' => 'this is the summary',
                 'cat_id' => '1'
             )

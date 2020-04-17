@@ -17,13 +17,11 @@
                                     <li><a class="active" href="{{route('all')}}">home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
-                                    @auth
-                                    <li><a href="{{route('video')}}">Video</a></li>
-                                    @endauth
                                     <li><a href="javascript:;">Blog <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="{{route('get.blog')}}">blog</a></li>
                                             <li><a href="{{route('corona.index')}}">Corona Update</a></li>
+                                            <li><a href="{{route('video')}}">Video</a></li>
                                         </ul>
                                     </li>
                                     <li>

@@ -36,8 +36,10 @@ class FrontEndController extends Controller
         return view('frontend.blog', compact('link', 'blog', 'category', 'recent'));
     }
 
-    public function getSpecificBlog($id)
+    public function getSpecificBlog(Request $request,$id,$slug)
     {
+        $category = Category::where('status', 'active')->get();
+        $recent = Blog::where('status', 'active')->orderBy('created_at', 'DESC')->limit(4)->get();
         $link = Link::where('status', 'active')->get();
         $blog = Blog::findOrFail($id);
         $blogKey = 'blog_'.$blog->id;
@@ -49,7 +51,7 @@ class FrontEndController extends Controller
             ->where('status','active')
             ->where('cat_id', '=', $blog->cat_id)
             ->get();
-        return view('frontend.singleblog', compact('blog', 'link', 'related'));
+        return view('frontend.singleblog', compact('blog', 'link', 'related','category','recent'));
     }
 
     public function search(Request $request)
@@ -86,10 +88,6 @@ class FrontEndController extends Controller
     public function video(){
         $link = Link::where('status', 'active')->get();
         $video = Video::where('status','active')->paginate(12);
-        if(\Auth::check()) {
-            return view('frontend.video', compact('link','video'));
-        }else{
-            return redirect()->route('all')->with('error','Sorry you are not authorized to access the video page');
-        }
+        return view('frontend.video', compact('link','video'));
     }
 }

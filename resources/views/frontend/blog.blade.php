@@ -42,7 +42,9 @@
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="{{route('specific.blog',$value->id)}}">
+                                    <input type="hidden" name="specific_blog_id" value="{{$value->id}}">
+                                  
+                                    <a class="d-inline-block" href="{{route('specific.blog',[$value->id,$value->slug])}}">
                                         <h2>{{$value->title}}</h2>
                                     </a>
                                     <p>{{$value->summary}}</p>

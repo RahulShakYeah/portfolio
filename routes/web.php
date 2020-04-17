@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','FrontEndController@sendTestimonial')->name('all');
 Route::get('/blog','FrontEndController@getAllBlog')->name('get.blog');
-Route::get('/single/{id}','FrontEndController@getSpecificBlog')->name('specific.blog');
+Route::get('/single/{id}/{slug}','FrontEndController@getSpecificBlog')->name('specific.blog');
 Route::post('/search','FrontEndController@search')->name('blog.search');
 Route::get('/contact','FrontEndController@contactView')->name('contact.view');
 Route::post('/contactdata','FrontEndController@contactData')->name('contact.data');

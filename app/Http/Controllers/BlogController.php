@@ -41,6 +41,7 @@ class BlogController extends Controller
         $blog->title = $request->get('title');
         $blog->metatitle = $request->get('metatitle');
         $blog->summary = $request->get('summary');
+        $blog->slug = \Str::slug($request->get('title'));
         $body = htmlentities(request()->get('description'));
         $blog->status = $request->get('status');
         $blog->description = $body;

@@ -4,10 +4,13 @@
     <list default="true" id="f5a1ee21-5aa2-4bea-bfed-15bd4400dcc2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_23_090639_create_blog_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_23_090639_create_blog_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/BlogTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/BlogTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogger/blog/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/singleblog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +153,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ResultManagement" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
@@ -217,7 +220,8 @@
       <workItem from="1586710600015" duration="20000" />
       <workItem from="1586769802936" duration="14349000" />
       <workItem from="1586787365393" duration="605000" />
-      <workItem from="1586948060027" duration="1430000" />
+      <workItem from="1586948060027" duration="3491000" />
+      <workItem from="1587107769478" duration="11580000" />
     </task>
     <servers />
   </component>
@@ -235,23 +239,23 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1586341277535" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1586337668075">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1587112625634">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1586337668075" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054711183" />
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1586073262819" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1587112625634" />
     <state x="277" y="60" key="SettingsEditor" timestamp="1585474737871">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1585474737871" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1586948063300">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1587120056738">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@0.0.1536.834" timestamp="1586948063300" />
     <state x="2308" y="287" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1280.994@1920.0.1280.994" timestamp="1586244556708" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1585054067486" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1586710600332" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1587120056738" />
     <state x="0" y="0" width="751" height="834" key="find.popup" timestamp="1586777235043">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -272,6 +276,11 @@
           <url>file://$PROJECT_DIR$/resources/views/frontend/corona/coronaindex.blade.php</url>
           <line>30</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/frontend/blog.blade.php</url>
+          <line>65</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
