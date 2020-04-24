@@ -37,23 +37,25 @@ class TestimonialController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|min:3',
+            'url' => 'required',
             'position' => 'required|min:3',
             'description' => 'required',
             'image' => 'required|image',
             'status' => 'required|in:active,inactive'
         ]);
-        if($request->hasFile('image')){
-            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = "Testimonial_".time().rand(0,999).$fileName.'.'.$extension;
-            $path = $request->file('image')->storeAs('public/testimonial',$fileNameToStore);
-        }else{
-            $fileNameToStore = "noimage.jpg";
-        }
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/uploads/testimonial';
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = 'Testimonial_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $fileNameToStore);
 
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
         $testimonial = new Testimonial();
         $testimonial->name = $request->get('name');
+        $testimonial->url = $request->get('url');
         $testimonial->position = $request->get('position');
         $testimonial->description = $request->get('description');
         $testimonial->status = $request->get('status');
@@ -106,32 +108,31 @@ class TestimonialController extends Controller
             'name' => 'required|min:3',
             'position' => 'required|min:3',
             'description' => 'required',
+            'url' => 'required',
             'status' => 'required|in:active,inactive'
         ]);
-        if($request->hasFile('image')){
-            $fileNameWithExtension = $request->file('image')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension,PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $fileNameToStore = "Testimonial_".time().rand(0,999).$fileName.'.'.$extension;
-            $path = $request->file('image')->storeAs('public/testimonial',$fileNameToStore);
-        }else{
-            $fileNameToStore = false;
-        }
-
         $testimonial = Testimonial::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $old_path = public_path() . '/uploads/testimonial/' . $testimonial->image;
+
+            if (\File::exists($old_path)) {
+                \File::delete($old_path);
+            }
+
+            $path = public_path() . '/uploads/testimonial/';
+            $filename = 'Testimonial_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $filename);
+
+        }else{
+            $filename = $testimonial->image;
+        }
         $testimonial->name = $request->get('name');
+        $testimonial->url = $request->get('url');
         $testimonial->position = $request->get('position');
         $testimonial->description = $request->get('description');
         $testimonial->status = $request->get('status');
-        if($fileNameToStore == false){
-            $fileNameToStore = $testimonial->image;
-        }elseif($fileNameToStore){
-            $path="storage/testimonial/".$testimonial->image;
-            if(\File::exists($path)){
-                \File::delete($path);
-            }
-            $testimonial->image = $fileNameToStore;
-        }
+        $testimonial->image = $filename;
         $status = $testimonial->save();
         if($status == true){
             return redirect()->route('testimonial.index')->with('success','Testimonial has been updated successfully');
@@ -149,7 +150,7 @@ class TestimonialController extends Controller
     public function destroy($id)
     {
         $testimonial = Testimonial::findOrFail($id);
-        $path = 'storage/testimonial/'.$testimonial->image;
+        $path = 'uploads/testimonial/'.$testimonial->image;
         if(\File::exists($path)){
             \File::delete($path);
         }

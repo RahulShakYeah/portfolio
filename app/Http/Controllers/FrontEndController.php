@@ -36,7 +36,7 @@ class FrontEndController extends Controller
         return view('frontend.blog', compact('link', 'blog', 'category', 'recent'));
     }
 
-    public function getSpecificBlog(Request $request,$id,$slug)
+    public function getSpecificBlog($id,$slug)
     {
         $category = Category::where('status', 'active')->get();
         $recent = Blog::where('status', 'active')->orderBy('created_at', 'DESC')->limit(4)->get();

@@ -32,7 +32,7 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="{{route('blog.list')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{route('blog.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -92,7 +92,7 @@
                                     <td>{{$value->title}}</td>
                                     <td>{{substr($value->summary,0,50)}}</td>
                                     @if($value->image != "noimage.jpg")
-                                        <td><img src="{{asset('storage/blog/'.$value->image)}}" style="max-width: 100px"
+                                        <td><img src="{{asset('uploads/blog/'.$value->image)}}" style="max-width: 100px"
                                                  alt="{{$value->title}}"></td>
                                     @else
                                         <td><span class="badge badge-dark">No Image Uploaded</span></td>
@@ -104,7 +104,8 @@
                                         <td>
 
                                             <a href="{{route('blog.edit',$value->id)}}" class="btn btn-success btn-sm ml-1 " style="border-radius: 60px;"><i class="fa fa-edit"></i></a>&nbsp;
-                                            <form method="DELETE" action="{{route('blog.delete',$value->id)}}" method="post" class="float-left">
+                                            <form  action="{{route('blog.destroy',$value->id)}}" method="post" class="float-left">
+                                                @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm" style="border-radius: 50px" type="submit">
                                                     <i class="fa fa-trash"></i></button>

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('testimonialstatus','active')
 @section('content')
     <div class="row">
         <div class="col-sm-12 mt-3">
@@ -16,6 +17,16 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter reviewer name">
                                         @error('name')
+                                        <p class="alert-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="url" class="col-3">Url</label>
+                                    <div class="col-sm-9">
+                                        <input type="url" class="form-control" id="url" name="url" placeholder="Enter reviewer url">
+                                        @error('url')
                                         <p class="alert-danger">{{$message}}</p>
                                         @enderror
                                     </div>
@@ -52,7 +63,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="status" class="col-3">status</label>
+                                    <label for="status" class="col-3">Status</label>
                                     <div class="col-sm-9">
                                         <select name="status" id="status" class="form-control">
                                             <option value="active">Publish</option>

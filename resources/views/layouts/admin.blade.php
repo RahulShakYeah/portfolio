@@ -70,30 +70,30 @@
             </div>
             <ul class="side-menu metismenu">
                 <li>
-                    <a class="active" href="index.html"><i class="sidebar-item-icon fa fa-th-large"></i>
+                    <a class="@yield('dashboardstatus')" href="{{route('dashboard')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
                         <span class="nav-label">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="{{route('portfolio.index')}}"><i class="sidebar-item-icon fa fa-pencil"></i>
+                    <a class="@yield('portfoliostatus')" href="{{route('portfolio.index')}}"><i class="sidebar-item-icon fa fa-pencil"></i>
                         <span class="nav-label">Portfolio</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{route('testimonial.index')}}"><i class="sidebar-item-icon fa fa-star"></i>
+                    <a class="@yield('testimonialstatus')" href="{{route('testimonial.index')}}"><i class="sidebar-item-icon fa fa-star"></i>
                         <span class="nav-label">Testimonial</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{route('link.index')}}"><i class="sidebar-item-icon fa fa-link"></i>
+                    <a class="@yield('sociallinkstatus')" href="{{route('link.index')}}"><i class="sidebar-item-icon fa fa-link"></i>
                         <span class="nav-label">Social Links</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{route('user.index')}}"><i class="sidebar-item-icon fa fa-users"></i>
+                    <a class="@yield('userstatus')" href="{{route('user.index')}}"><i class="sidebar-item-icon fa fa-users"></i>
                         <span class="nav-label">Users</span>
                     </a>
                 </li>

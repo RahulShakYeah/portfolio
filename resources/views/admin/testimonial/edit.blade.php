@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('testimonialstatus','active')
 @section('content')
     <div class="row">
         <div class="col-sm-12 mt-3">
@@ -17,6 +18,16 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="name" name="name" value="{{$testimonial->name}}">
                                         @error('name')
+                                        <p class="alert-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="url" class="col-3">Url</label>
+                                    <div class="col-sm-9">
+                                        <input type="url" class="form-control" id="url" name="url" value="{{$testimonial->url}}">
+                                        @error('url')
                                         <p class="alert-danger">{{$message}}</p>
                                         @enderror
                                     </div>
@@ -52,7 +63,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-sm-4">
-                                        <img src="{{asset('storage/testimonial/'.$testimonial->image)}}" style="max-width:200px" alt="">
+                                        <img src="{{asset('uploads/testimonial/'.$testimonial->image)}}" style="max-width:200px" alt="">
                                     </div>
                                 </div>
 

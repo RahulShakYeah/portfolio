@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('sociallinkstatus','active')
 @section('content')
     <div class="row">
         <div class="col-sm-12 mt-3">

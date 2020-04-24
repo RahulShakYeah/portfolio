@@ -9,9 +9,9 @@
                 </div>
                 <div class="card-body">
                     <div class="box box-primary">
-                        <form action="{{route('blog.update')}}" method="post" enctype="multipart/form-data" onsubmit="beforeSubmit();">
+                        <form action="{{route('blog.update',$blog->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="id" value="{{$blog->id}}">
+                            @method('put')
                             <div class="box-body">
                                 <div class="form-group row">
                                     <label for="blog_title" class="col-3">Blog Title</label>

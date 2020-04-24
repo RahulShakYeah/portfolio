@@ -34,8 +34,7 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-
-                                        <span class="counter">{{$data['tested_total']}}</span>
+                                        <span>{{$data['tested_total']}}</span>
                                     </h3>
                                     <p>Total Tested</p>
                                 </div>
@@ -43,8 +42,7 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-
-                                        <span class="counter">{{$data['tested_positive']}}</span>
+                                        <span>{{$data['tested_positive']}}</span>
                                     </h3>
                                     <p>Total Positive</p>
                                 </div>
@@ -52,7 +50,7 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-                                        <span class="counter">{{$data['tested_negative']}}</span>
+                                        <span>{{$data['tested_negative']}}</span>
                                     </h3>
                                     <p>Tested Negative</p>
                                 </div>
@@ -60,7 +58,7 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-                                        <span class="counter">{{$data['in_isolation']}}</span>
+                                        <span>{{$data['in_isolation']}}</span>
                                     </h3>
                                     <p>In Isolation</p>
                                 </div>
@@ -68,7 +66,7 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-                                        <span class="counter">{{$data['deaths']}}</span>
+                                        <span>{{$data['deaths']}}</span>
                                     </h3>
                                     <p>Deaths</p>
                                 </div>
@@ -76,9 +74,9 @@
                             <div class="col-xl-4 col-md-4">
                                 <div class="single_counter text-center">
                                     <h3>
-                                        <span class="counter">{{$data['pending_result']}}</span>
+                                        <span>{{$data['recovered']}}</span>
                                     </h3>
-                                    <p>Pending Result</p>
+                                    <p>Recovered</p>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +98,7 @@
                         <th>Critical Cases</th>
                         </thead>
                         <tbody>
-                        @for($i=0;$i<=227;$i++)
+                        @for($i=0;$i<(count($world));$i++)
                             <tr>
                                 <td>{{$i+1}}</td>
                                 <td>{{$world[$i]['country']}}</td>

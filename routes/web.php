@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','FrontEndController@sendTestimonial')->name('all');
 Route::get('/blog','FrontEndController@getAllBlog')->name('get.blog');
-Route::get('/single/{id}/{slug}','FrontEndController@getSpecificBlog')->name('specific.blog');
+Route::get('/blog/{id}/{slug}','FrontEndController@getSpecificBlog')->name('specific.blog');
 Route::post('/search','FrontEndController@search')->name('blog.search');
 Route::get('/contact','FrontEndController@contactView')->name('contact.view');
 Route::post('/contactdata','FrontEndController@contactData')->name('contact.data');
@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function(){
     Route::get('/','HomeController@admin')->name('admin');
+    Route::get('/dashboard','UserController@dashboard')->name('dashboard');
     Route::resource('testimonial','TestimonialController');
     Route::resource('link','LinkController');
     Route::resource('portfolio','PortfolioController');
@@ -50,12 +51,7 @@ Route::group(['prefix'=>'blogger','middleware'=>['auth','blogger']],function(){
     Route::get('/cat/edit/{id}','CategoryController@edit')->name('cat.edit');
     Route::post('/cat/update/{id}','CategoryController@update')->name('cat.update');
     Route::get('/{id}/delete','CategoryController@destroy')->name('blogger.destroy');
-    Route::get('/blog','BlogController@index')->name('blog.list');
-    Route::get('/blog/create','BlogController@create')->name('blog.create');
-    Route::post('/blog/store','BlogController@store')->name('blog.store');
-    Route::get('/{id}/delete/blog','BlogController@destroy')->name('blog.delete');
-    Route::get('/{id}/edit/blog','BlogController@edit')->name('blog.edit');
-    Route::post('update/blog','BlogController@update')->name('blog.update');
+    Route::resource('blog','BlogController');
     Route::resource('video','VideoController');
     Route::resource('album','AlbumController');
     Route::resource('image','ImageController');

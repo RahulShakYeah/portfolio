@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="bradcam_text text-center">
+                <div class="bradcam_text text-center" style="margin-top: auto">
                     <h3>Blog</h3>
                 </div>
             </div>
@@ -42,8 +42,6 @@
                                 </div>
 
                                 <div class="blog_details">
-                                    <input type="hidden" name="specific_blog_id" value="{{$value->id}}">
-                                  
                                     <a class="d-inline-block" href="{{route('specific.blog',[$value->id,$value->slug])}}">
                                         <h2>{{$value->title}}</h2>
                                     </a>
@@ -109,7 +107,7 @@
                                 <div class="media post_item">
                                     <img src="{{asset('uploads/blog/'.$value->image)}}" style="max-width: 100px" alt="post">
                                     <div class="media-body">
-                                        <a href="{{route('specific.blog',$value->id)}}">
+                                        <a href="{{route('specific.blog',[$value->id,$value->slug])}}">
                                             <h3>{{$value->title}}</h3>
                                         </a>
                                         <p>{{date('d F Y',strtotime($value->created_at))}}</p>
@@ -153,7 +151,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Facebook Page</h4>
-                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Trendy-world-109705210700581/?ref=aymt_homepage_panel&eid=ARCTGqEgrDLib3I0uPmI0Fj1q42I2jRtsIHrk-y7pXwYFP4kRBMoROdB6ASrEkwbHUxQ7hZTrBhGMUT9" data-width="450px" data-height="480px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="false"></div>
+                        <div class="fb-page facebook-page" style="width: 300px;" data-href="https://www.facebook.com/Trendy-world-109705210700581/?ref=aymt_homepage_panel&eid=ARCTGqEgrDLib3I0uPmI0Fj1q42I2jRtsIHrk-y7pXwYFP4kRBMoROdB6ASrEkwbHUxQ7hZTrBhGMUT9" data-width="250px" data-height="380px" data-hide-cover="false" data-show-facepile="true" data-show-posts="true" data-small-header="false"></div>
                         <script>(function(d, s, id) {
                                 var js, fjs = d.getElementsByTagName(s)[0];
                                 if (d.getElementById(id)) return;

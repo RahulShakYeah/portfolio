@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('testimonialstatus','active')
 @section('content')
     <div class="row">
         <div class="col-sm-12">
@@ -13,6 +14,7 @@
                 <thead class="thead-dark">
                 <th>S.N</th>
                 <th>Name</th>
+                <th>URL</th>
                 <th>Position</th>
                 <th>Image</th>
                 <th>Description</th>
@@ -25,8 +27,9 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$value->name}}</td>
+                                <td>{{$value->url}}</td>
                                 <td>{{$value->position}}</td>
-                                <td><img src="{{asset('storage/testimonial/'.$value->image)}}" style="max-width:100px;"></td>
+                                <td><img src="{{asset('uploads/testimonial/'.$value->image)}}" style="max-width:100px;"></td>
                                 <td>{{substr($value->description,0,50)}}</td>
                                 <td><span class="badge badge-{{$value->status == "active"?"success":"danger"}}">{{$value->status == "active"?"Publish":"Un-Publish"}}</span></td>
                                 <td>

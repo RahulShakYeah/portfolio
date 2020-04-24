@@ -19,6 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('position');
             $table->longText('description');
             $table->string('image');
+            $table->string('url');
             $table->enum('status',['active','inactive'])->default('inactive');
             $table->timestamps();
         });

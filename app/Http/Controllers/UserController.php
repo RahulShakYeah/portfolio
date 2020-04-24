@@ -151,4 +151,8 @@ class UserController extends Controller
             return redirect()->route('user.index')->with('error', 'Error occured while deleting the user');
         }
     }
+
+    public function dashboard(){
+        return view('admin.index');
+    }
 }

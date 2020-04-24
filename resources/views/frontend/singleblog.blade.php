@@ -105,7 +105,7 @@
                                     <img src="{{asset('uploads/blog/'.$value->image)}}" style="max-width: 100px"
                                          alt="post">
                                     <div class="media-body">
-                                        <a href="{{route('specific.blog',$value->id)}}">
+                                        <a href="{{route('specific.blog',[$value->id,$value->slug])}}">
                                             <h3>{{$value->title}}</h3>
                                         </a>
                                         <p>{{date('d F Y',strtotime($value->created_at))}}</p>

@@ -31,5 +31,8 @@
         "owl-carousel": "^1.0.0",
         "isotope": "^1.0.0-alpha.3",
         "magnific-popup": "^1.1.0"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^18.0.0"
     }
 }

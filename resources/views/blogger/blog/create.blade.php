@@ -9,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     <div class="box box-primary">
-                        <form method="post" action="{{route('blog.store')}}" enctype="multipart/form-data" onsubmit="beforeSubmit();">
+                        <form method="post" action="{{route('blog.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="box-body">
                                 <div class="form-group row">
@@ -35,7 +35,7 @@
                                 <div class="form-group row">
                                     <label for="summernote" class="col-3">Blog Description</label>
                                     <div class="col-sm-9">
-                                        <textarea name="description" class="summernote" ></textarea>
+                                        <textarea name="description" id="editor"></textarea>
                                         @error('description')
                                         <p class="alert-danger">{{$message}}</p>
                                         @enderror

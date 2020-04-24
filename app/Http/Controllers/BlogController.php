@@ -6,16 +6,35 @@ use Illuminate\Http\Request;
 use App\Blog;
 class BlogController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $blog = Blog::orderBy('created_at','DESC')->get();
         return view('blogger.blog.list')->with('blog',$blog);
     }
 
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('blogger.blog.create');
     }
 
-    public function store(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $this->validate($request,[
             "title" => "required|min:3",
             "summary" => "required",
@@ -55,39 +74,41 @@ class BlogController extends Controller
         $blog->added_by = auth()->user()->id;
         $blog->image = $fileNameToStore;
         $blog->save();
-        return redirect()->route('blog.list')->with('success','Blog added successfully');
-
+        return redirect()->route('blog.index')->with('success','Blog added successfully');
     }
 
-    public function indexPage(){
-        $blog = Blog::orderBy('createad_at','DESC')->get();
-        return view('blogger.index')->with('blog',$blog);
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
-    public function destroy($id){
-        $blog = Blog::findOrFail($id);
-        if(auth()->user()->id == $blog->added_by) {
-            $path = "uploads/blog/" . $blog->image;
-            if (\File::exists($path)) {
-                \File::delete($path);
-            }
-            $status = $blog->delete();
-            if ($status == true) {
-                return redirect()->route('blog.list')->with('success', 'Blog data delete successfully');
-            } else {
-                return redirect()->route('blog.list')->with('error', 'Error occured while deleting the blog.');
-            }
-        }else{
-            return redirect()->route('blog.list')->with('error','Unauthorized user');
-        }
-    }
-
-    public function edit($id){
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         $blog = Blog::findOrFail($id);
         return view('blogger.blog.edit')->with('blog',$blog);
     }
 
-    public function update(Request $request){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
         $this->validate($request,[
             "title" => "required|min:3",
             "metatitle" => "required",
@@ -97,7 +118,6 @@ class BlogController extends Controller
             "status" => "required|in:active,inactive",
             "category" => "required|exists:categories,id"
         ]);
-        $id = $request->get('id');
         $blog = Blog::findOrFail($id);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -117,7 +137,7 @@ class BlogController extends Controller
         $blog->title = $request->get('title');
         $blog->summary = $request->get('summary');
         $blog->metatitle = $request->get('metatitle');
-        $body = htmlentities(request()->get('description'));
+        $body = htmlentities($request->get('description'));
         $blog->description = $body;
         if(request()->get('is_featured') == null){
             $data = 0;
@@ -129,6 +149,31 @@ class BlogController extends Controller
         $blog->status = $request->get('status');
         $blog->image = $filename;
         $blog->save();
-        return redirect()->route('blog.list')->with('success','Blog data updated successfully');
+        return redirect()->route('blog.index')->with('success','Blog data updated successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $blog = Blog::findOrFail($id);
+        if(auth()->user()->id == $blog->added_by) {
+            $path = "uploads/blog/" . $blog->image;
+            if (\File::exists($path)) {
+                \File::delete($path);
+            }
+            $status = $blog->delete();
+            if ($status == true) {
+                return redirect()->route('blog.index')->with('success', 'Blog data delete successfully');
+            } else {
+                return redirect()->route('blog.index')->with('error', 'Error occured while deleting the blog.');
+            }
+        }else{
+            return redirect()->route('blog.index')->with('error','Unauthorized user');
+        }
     }
 }

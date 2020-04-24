@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/blogger.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery.dataTables.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -69,7 +70,7 @@
                         </a>
                     </li>
                     <li class="nav-item has-treeview mt-2 mb-2">
-                        <a href="{{route('blog.list')}}" class="nav-link @yield('blogstatus')">
+                        <a href="{{route('blog.index')}}" class="nav-link @yield('blogstatus')">
                             <i class="nav-icon fas fa-fw fa-newspaper"></i>
                             <p>
                                 Blog
@@ -159,6 +160,17 @@
     $(document).ready(function () {
         $('.summernote').summernote();
     });
+</script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor',{
+            ckfinder: {
+                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+            }
+        } ) )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 <script>
     let myChart = document.getElementById('myChart').getContext('2d');

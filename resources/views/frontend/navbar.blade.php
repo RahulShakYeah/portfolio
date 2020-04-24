@@ -1,4 +1,4 @@
-<header>
+<header style="color:black !import">
     <div class="header-area ">
         <div id="sticky-header" class="main-header-area">
             <div class="container-fluid">
@@ -14,10 +14,10 @@
                         <div class="main-menu  d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a class="active" href="{{route('all')}}">home</a></li>
+                                    <li><a class="active" href="{{route('all')}}" >home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="services.html">Services</a></li>
-                                    <li><a href="javascript:;">Blog <i class="ti-angle-down"></i></a>
+                                    <li><a href="javascript:;">Blog</a>
                                         <ul class="submenu">
                                             <li><a href="{{route('get.blog')}}">blog</a></li>
                                             <li><a href="{{route('corona.index')}}">Corona Update</a></li>

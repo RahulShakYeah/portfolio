@@ -1,0 +1,134 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Blog;
+class BlogController extends Controller
+{
+    public function index(){
+        $blog = Blog::orderBy('created_at','DESC')->get();
+        return view('blogger.blog.list')->with('blog',$blog);
+    }
+
+    public function create(){
+        return view('blogger.blog.create');
+    }
+
+    public function store(Request $request){
+        $this->validate($request,[
+            "title" => "required|min:3",
+            "summary" => "required",
+            'metatitle' => "required",
+            "description" => "required",
+            "image" => "sometimes|image",
+            "status" => "required|in:active,inactive",
+            "is_featured" => "sometimes|in:1",
+            "category" => "required|exists:categories,id"
+        ]);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = public_path() . '/uploads/blog';
+            $extension = $file->getClientOriginalExtension();
+            $fileNameToStore = 'Blog_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        $blog = new Blog();
+        $blog->title = $request->get('title');
+        $blog->metatitle = $request->get('metatitle');
+        $blog->summary = $request->get('summary');
+        $blog->slug = \Str::slug($request->get('title'));
+        $body = htmlentities(request()->get('description'));
+        $blog->status = $request->get('status');
+        $blog->description = $body;
+        if(request()->get('is_featured') == null){
+            $data = 0;
+        }else{
+            $data = 1;
+        }
+        $blog->is_featured = $data;
+        $blog->cat_id = $request->get('category');
+        $blog->added_by = auth()->user()->id;
+        $blog->image = $fileNameToStore;
+        $blog->save();
+        return redirect()->route('blog.list')->with('success','Blog added successfully');
+
+    }
+
+    public function indexPage(){
+        $blog = Blog::orderBy('createad_at','DESC')->get();
+        return view('blogger.index')->with('blog',$blog);
+    }
+
+    public function destroy($id){
+        $blog = Blog::findOrFail($id);
+        if(auth()->user()->id == $blog->added_by) {
+            $path = "uploads/blog/" . $blog->image;
+            if (\File::exists($path)) {
+                \File::delete($path);
+            }
+            $status = $blog->delete();
+            if ($status == true) {
+                return redirect()->route('blog.list')->with('success', 'Blog data delete successfully');
+            } else {
+                return redirect()->route('blog.list')->with('error', 'Error occured while deleting the blog.');
+            }
+        }else{
+            return redirect()->route('blog.list')->with('error','Unauthorized user');
+        }
+    }
+
+    public function edit($id){
+        $blog = Blog::findOrFail($id);
+        return view('blogger.blog.edit')->with('blog',$blog);
+    }
+
+    public function update(Request $request){
+        $this->validate($request,[
+            "title" => "required|min:3",
+            "metatitle" => "required",
+            "summary" => "required",
+            "description" => "required",
+            "is_featured" => "sometimes|in:1",
+            "status" => "required|in:active,inactive",
+            "category" => "required|exists:categories,id"
+        ]);
+        $id = $request->get('id');
+        $blog = Blog::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $old_path = public_path() . '/uploads/blog/' . $blog->image;
+
+            if (\File::exists($old_path)) {
+                \File::delete($old_path);
+            }
+
+            $path = public_path() . '/uploads/blog/';
+            $filename = 'Blog_' . time() . rand(0, 999) . $file->getClientOriginalName();
+            $file->move($path, $filename);
+
+        }else{
+            $filename = $blog->image;
+        }
+        $blog->title = $request->get('title');
+        $blog->summary = $request->get('summary');
+        $blog->metatitle = $request->get('metatitle');
+        $body = htmlentities(request()->get('description'));
+        $blog->description = $body;
+        if(request()->get('is_featured') == null){
+            $data = 0;
+        }else{
+            $data = 1;
+        }
+        $blog->is_featured = $data;
+        $blog->cat_id = $request->get('category');
+        $blog->status = $request->get('status');
+        $blog->image = $filename;
+        $blog->save();
+        return redirect()->route('blog.list')->with('success','Blog data updated successfully');
+    }
+}

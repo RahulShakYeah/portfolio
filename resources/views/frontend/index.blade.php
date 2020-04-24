@@ -112,9 +112,9 @@
                     <div class="col-xl-5 col-md-5 ml-5">
                         <div class="single_Portfolio">
                             <div class="portfolio_thumb">
-                                <img src="{{asset('uploads/portfolio/'.$value->image)}}">
+                                <img src="{{asset('uploads/portfolio/'.$value->image)}}" style="object-fit: cover" >
                             </div>
-                            <a href="{{asset('uploads/portfolio/'.$value->image)}}" style="background-attachment: cover" class="popup popup-image"></a>
+                            <a href="{{asset('uploads/portfolio/'.$value->image)}}" class="popup popup-image"></a>
                             <div class="portfolio_hover">
                                 <div class="title">
                                     <h3>{{$value->title}}</h3>
@@ -226,10 +226,10 @@
                                     <p>{{$value->description}} </p>
                                     <div class="testmonial_author">
                                         <div class="thumb">
-                                            <img src="{{asset('storage/testimonial/'.$value->image)}}"
+                                            <img src="{{asset('uploads/testimonial/'.$value->image)}}"
                                                  style="max-width:50px;border-radius:50px;margin-left:-5px " alt="">
                                         </div>
-                                        <h3>{{$value->name}}</h3>
+                                        <a href="{{$value->url}}" target="_blank"><h3>{{$value->name}}</h3></a>
                                         <span>{{$value->position}}</span>
                                     </div>
                                 </div>
@@ -248,6 +248,5 @@
 </div>
 
 <!-- /testimonial_area  -->
-@include('frontend.subscription')
 <!-- footer start -->
 @include('frontend.footer')
