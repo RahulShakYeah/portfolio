@@ -90,4 +90,11 @@ class FrontEndController extends Controller
         $video = Video::where('status','active')->paginate(12);
         return view('frontend.video', compact('link','video'));
     }
+
+    public function aboutme(){
+        $link = Link::where('status', 'active')->get();
+        $testimonial = Testimonial::orderBy('created_at', 'DESC')->where('status', 'active')->get();
+        $about = About::get();
+        return view('frontend.about',compact('link','testimonial','about'));
+    }
 }

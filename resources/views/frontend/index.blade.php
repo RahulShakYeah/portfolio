@@ -60,8 +60,8 @@
                     <div class="icon">
                         <img src="images/svg_icon/1.svg" style="max-width:100px" alt="">
                     </div>
-                    <h3>Dashboard Development</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                    <h3>Dashboard<br>Development</h3>
+                    <p>Able to create dashboard for any websites</p>
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">
@@ -70,7 +70,7 @@
                         <img src="images/svg_icon/2.svg" style="max-width:100px" alt="">
                     </div>
                     <h3>Website <br>Development</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                    <p>Able to create website from scratch with CMS</p>
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">
@@ -79,7 +79,7 @@
                         <img src="images/svg_icon/3.svg" style="max-width:100px" alt="">
                     </div>
                     <h3>SEO <br>Optimization</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+                    <p>Able to perform on page and off page optimization</p>
                 </div>
             </div>
         </div>
@@ -109,10 +109,10 @@
         <div class="row">
             @if(count($portfolio) > 0)
                 @foreach($portfolio as $key=>$value)
-                    <div class="col-xl-5 col-md-5 ml-5">
+                    <div class="col-xl-6 col-md-6">
                         <div class="single_Portfolio">
                             <div class="portfolio_thumb">
-                                <img src="{{asset('uploads/portfolio/'.$value->image)}}" style="object-fit: cover" >
+                                <img src="{{asset('uploads/portfolio/'.$value->image)}}" style="object-fit: fill" >
                             </div>
                             <a href="{{asset('uploads/portfolio/'.$value->image)}}" class="popup popup-image"></a>
                             <div class="portfolio_hover">

@@ -2545,7 +2545,30 @@ h3 {
     background-color: black;
     height: 3px !important;
 }
-
+.first-row {
+    display: flex;
+    justify-content: center;
+}
+ .single-brand{
+    border: 1px solid #201f1f17;
+    text-align: center;
+    padding: 1.8rem 0rem;
+    margin: .9rem 0;
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform .4s ease;
+}
+ .single-brand > img{
+    width: 50%;
+}
+.single-brand:hover{
+    box-shadow: 0px 10px 30px rgba(57, 56, 61, 0.205);
+    transform: scale(1.1);
+}
+.single-brand:hover > img{
+    filter: brightness(0.15);
+}
 /* line 4, ../../Arafath/CL/CL October/218 PORTFOLIO/HTML/scss/_bradcam.scss */
 .breadcam_bg_2 {
   background-image: url(../images/banner/bradcam_2.png);

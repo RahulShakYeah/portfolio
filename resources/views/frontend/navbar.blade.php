@@ -15,8 +15,7 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a class="active" href="{{route('all')}}" >home</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="{{route('about.me')}}">About</a></li>
                                     <li><a href="javascript:;">Blog</a>
                                         <ul class="submenu">
                                             <li><a href="{{route('get.blog')}}">blog</a></li>

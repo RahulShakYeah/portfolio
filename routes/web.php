@@ -21,6 +21,7 @@ Route::get('/contact','FrontEndController@contactView')->name('contact.view');
 Route::post('/contactdata','FrontEndController@contactData')->name('contact.data');
 Route::get('/video','FrontEndController@video')->name('video');
 Route::get('/corona','CoronaController@index')->name('corona.index');
+Route::get('/about','FrontEndController@aboutme')->name('about.me');
 Route::get('/download',function(){
     $file = public_path()."/Rahul_CV.docx";
     $headers = array(
